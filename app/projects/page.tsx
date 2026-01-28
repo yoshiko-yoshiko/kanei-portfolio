@@ -163,25 +163,6 @@ export default function ProjectsPage() {
             </div>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-4 text-center">
-            <div className="p-4 rounded-lg bg-[#1a1a1a]/5">
-              <div className="text-2xl font-bold text-[#1a1a1a]">{PROJECTS.length}</div>
-              <div className="text-xs text-[#1a1a1a]/50">Total</div>
-            </div>
-            <div className="p-4 rounded-lg bg-[#10b981]/10">
-              <div className="text-2xl font-bold text-[#10b981]">
-                {PROJECTS.filter(p => p.period === 'work').length}
-              </div>
-              <div className="text-xs text-[#10b981]">Work</div>
-            </div>
-            <div className="p-4 rounded-lg bg-[#f97316]/10">
-              <div className="text-2xl font-bold text-[#f97316]">
-                {PROJECTS.filter(p => p.period === 'student').length}
-              </div>
-              <div className="text-xs text-[#f97316]">Student</div>
-            </div>
-          </div>
         </div>
       </main>
     </div>

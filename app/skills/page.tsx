@@ -39,22 +39,6 @@ export default function SkillsPage() {
 
           {/* Skills Carousel */}
           <SkillsCarousel />
-
-          {/* Stats */}
-          <div className="mt-12 grid grid-cols-3 gap-4 text-center">
-            <div className="p-4 rounded-lg bg-[#10b981]/5 hover:bg-[#10b981]/10 transition-colors">
-              <div className="text-2xl font-bold text-[#10b981]">2+</div>
-              <div className="text-xs text-[#1a1a1a]/50">Years Exp</div>
-            </div>
-            <div className="p-4 rounded-lg bg-[#10b981]/5 hover:bg-[#10b981]/10 transition-colors">
-              <div className="text-2xl font-bold text-[#10b981]">4+</div>
-              <div className="text-xs text-[#1a1a1a]/50">Projects</div>
-            </div>
-            <div className="p-4 rounded-lg bg-[#10b981]/5 hover:bg-[#10b981]/10 transition-colors">
-              <div className="text-2xl font-bold text-[#10b981]">50</div>
-              <div className="text-xs text-[#1a1a1a]/50">新卒育成</div>
-            </div>
-          </div>
         </div>
       </main>
     </div>
