@@ -31,7 +31,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'medical-app',
     title: '医療系オンラインアプリ',
-    description: 'オンライン服薬指導プラットフォーム（業務）',
+    description: 'オンライン服薬指導プラットフォーム',
     longDescription: '患者向けオンライン服薬指導アプリの開発。予約型とリアルタイム型の2つの指導方式を実装し、予約変更からリアルタイム待ち行列への移行機能を開発。キャンセル率を9.62%から2.17%に削減。',
     technologies: [
       TECHNOLOGIES[0], // React
@@ -65,9 +65,42 @@ export const PROJECTS: Project[] = [
     period: 'work',
   },
   {
+    id: 'my-portfolio',
+    title: 'ポートフォリオ',
+    description: 'このサイトの作成',
+    longDescription: 'デザインから考えました',
+    technologies: [
+      TECHNOLOGIES[1], // Next.js
+      TECHNOLOGIES[2], // TypeScript
+      TECHNOLOGIES[3], // Tailwind CSS
+    ],
+    role: 'エンジニア',
+    duration: '継続中',
+    teamSize: 3,
+    challenges: [
+      '45種類のコンポーネント仕様の整理',
+      'MCPサーバーとしてのAPI設計',
+      'Claude Desktopとの統合',
+    ],
+    solutions: [
+      'Litによる軽量Webコンポーネント実装',
+      'Storybookでのドキュメント化',
+      'MCPプロトコルに準拠したサーバー実装',
+    ],
+    results: [
+      '45コンポーネントをライブラリ化',
+      'Claude DesktopからAIアシスタント経由で利用可能',
+      '社内開発効率の向上',
+    ],
+    images: [],
+    featured: true,
+    category: 'design',
+    period: 'work',
+  },
+  {
     id: 'design-system',
-    title: 'デザインシステム MCP',
-    description: '社内WebコンポーネントライブラリのMCPサーバー（業務）',
+    title: 'デザインシステム',
+    description: '社内Webコンポーネントライブラリの作成',
     longDescription: '社内デザインシステムのWebコンポーネントライブラリ。45種類のコンポーネントを提供し、Claude Desktop向けMCPサーバーとして統合。開発者がAIアシスタントを通じてコンポーネント情報を取得可能に。',
     technologies: [
       TECHNOLOGIES[20], // Lit
