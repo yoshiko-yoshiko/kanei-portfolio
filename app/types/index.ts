@@ -43,6 +43,7 @@ export interface Skill {
   name: string;
   level: number; // 1-5
   yearsOfExperience: number;
+  icon?: React.ComponentType<{ className?: string }>;
 }
 
 export interface SocialLink {

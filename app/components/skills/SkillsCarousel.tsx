@@ -8,6 +8,7 @@ import type { SkillCategory, Skill } from '@/app/types';
 // スキルバーコンポーネント（表示時にアニメーション）
 function SkillBar({ skill, isVisible, delay }: { skill: Skill; isVisible: boolean; delay: number }) {
   const percentage = (skill.level / 5) * 100;
+  const IconComponent = skill.icon;
 
   return (
     <div
@@ -19,7 +20,12 @@ function SkillBar({ skill, isVisible, delay }: { skill: Skill; isVisible: boolea
       }}
     >
       <div className="flex items-center justify-between text-sm">
-        <span className="text-[#1a1a1a] font-medium">{skill.name}</span>
+        <div className="flex items-center gap-2">
+          {IconComponent && (
+            <IconComponent className="w-4 h-4 text-[#10b981]" />
+          )}
+          <span className="text-[#1a1a1a] font-medium">{skill.name}</span>
+        </div>
         <span className="text-[#1a1a1a]/40 text-xs">
           {skill.yearsOfExperience}y
         </span>
