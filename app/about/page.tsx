@@ -118,7 +118,7 @@ export default function AboutPage() {
           <div className="mt-12">
             <h2 className="text-xl font-semibold text-[#1a1a1a] mb-6">Strengths</h2>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="p-4 rounded-lg border border-[#1a1a1a]/10">
                 <h3 className="font-medium text-[#1a1a1a] mb-2">伴走力</h3>
                 <p className="text-xs text-[#1a1a1a]/50">

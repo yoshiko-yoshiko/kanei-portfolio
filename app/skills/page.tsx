@@ -30,7 +30,7 @@ export default function SkillsPage() {
 
       {/* Content */}
       <main className="pt-20 pb-16 px-6">
-        <div className="max-w-lg mx-auto">
+        <div className="max-w-[600px] mx-auto">
           {/* Title */}
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-[#1a1a1a] mb-2">Skills</h1>
