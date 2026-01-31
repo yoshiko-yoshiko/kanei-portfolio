@@ -367,7 +367,7 @@ export function SkillsCarousel() {
 
       {/* カテゴリプレビュー（横スクロール） */}
       <div className="mt-8 overflow-x-auto pb-2 -mx-2 px-2 scrollbar-hide">
-        <div className="flex gap-2 min-w-max">
+        <div className="flex justify-center gap-2 min-w-max">
           {categories.map((category, index) => (
             <button
               key={category.name}
