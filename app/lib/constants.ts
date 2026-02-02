@@ -288,7 +288,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
 export const SITE_CONFIG = {
   name: 'Portfolio',
   title: 'Engineer',
-  description: 'エンジニアのポートフォリオサイト',
+  description: 'Kanei NakashimaのPortfolio',
   author: 'Kanei Nakashima',
   email: 'iamkaneisanda@gmail.com',
   url: 'https://kanei-portfolio.vercel.app',
