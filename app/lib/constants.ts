@@ -14,49 +14,65 @@ import {
   SiStorybook,
   SiFigma,
   SiLit,
+  SiMongodb,
+  SiPython,
+  SiGooglemaps,
+  SiFastapi,
+  SiGooglecolab,
+  SiPrisma,
+  SiTrpc,
+  SiLine,
+  SiTypeorm,
+  SiOpenai,
 } from 'react-icons/si';
-import { TbBrandOpenai, TbRobot, TbDatabase, TbPalette } from 'react-icons/tb';
+import { TbBrandOpenai, TbRobot, TbDatabase, TbPalette, TbLock, TbFileText } from 'react-icons/tb';
 
 export const TECHNOLOGIES: Technology[] = [
-  { name: 'React', category: 'frontend', icon: '⚛️', color: '#61DAFB' },
-  { name: 'Next.js', category: 'frontend', icon: '▲', color: '#000000' },
-  { name: 'TypeScript', category: 'frontend', icon: 'TS', color: '#3178C6' },
-  { name: 'Tailwind CSS', category: 'frontend', icon: '🎨', color: '#06B6D4' },
-  { name: 'Node.js', category: 'backend', icon: '🟢', color: '#339933' },
-  { name: 'PostgreSQL', category: 'database', icon: '🐘', color: '#336791' },
-  { name: 'MongoDB', category: 'database', icon: '🍃', color: '#47A248' },
-  { name: 'Figma', category: 'design', icon: '🎨', color: '#F24E1E' },
-  { name: 'Git', category: 'tool', icon: '📝', color: '#F05032' },
-  { name: 'Python', category: 'backend', icon: '🐍', color: '#3776AB' },
-  { name: 'OpenAI API', category: 'ai', icon: '🤖', color: '#10b981' },
-  { name: 'Google Maps', category: 'tool', icon: '🗺️', color: '#4285F4' },
-  { name: 'Firebase', category: 'backend', icon: '🔥', color: '#FFCA28' },
-  { name: 'FastAPI', category: 'backend', icon: '⚡', color: '#009688' },
-  { name: 'Google Colab', category: 'tool', icon: '📓', color: '#F9AB00' },
-  { name: 'Prisma', category: 'backend', icon: '◮', color: '#2D3748' },
-  { name: 'tRPC', category: 'backend', icon: '🔗', color: '#398CCB' },
-  { name: 'microCMS', category: 'backend', icon: '📝', color: '#2B2B2B' },
-  { name: 'NextAuth', category: 'backend', icon: '🔐', color: '#000000' },
-  { name: 'NestJS', category: 'backend', icon: '🐱', color: '#E0234E' },
-  { name: 'Lit', category: 'frontend', icon: '🔥', color: '#324FFF' },
-  { name: 'Storybook', category: 'tool', icon: '📖', color: '#FF4785' },
-  { name: 'LINE LIFF', category: 'frontend', icon: '💬', color: '#00B900' },
-  { name: 'TypeORM', category: 'backend', icon: '🗄️', color: '#FE0902' },
+  { name: 'React', category: 'frontend', icon: SiReact, color: '#61DAFB' },
+  { name: 'Next.js', category: 'frontend', icon: SiNextdotjs, color: '#000000' },
+  { name: 'TypeScript', category: 'frontend', icon: SiTypescript, color: '#3178C6' },
+  { name: 'Tailwind CSS', category: 'frontend', icon: SiTailwindcss, color: '#06B6D4' },
+  { name: 'Node.js', category: 'backend', icon: SiNodedotjs, color: '#339933' },
+  { name: 'PostgreSQL', category: 'database', icon: SiPostgresql, color: '#336791' },
+  { name: 'MongoDB', category: 'database', icon: SiMongodb, color: '#47A248' },
+  { name: 'Figma', category: 'design', icon: SiFigma, color: '#F24E1E' },
+  { name: 'Git', category: 'tool', icon: SiGit, color: '#F05032' },
+  { name: 'Python', category: 'backend', icon: SiPython, color: '#3776AB' },
+  { name: 'OpenAI API', category: 'ai', icon: SiOpenai, color: '#10b981' },
+  { name: 'Google Maps', category: 'tool', icon: SiGooglemaps, color: '#4285F4' },
+  { name: 'Firebase', category: 'backend', icon: SiFirebase, color: '#FFCA28' },
+  { name: 'FastAPI', category: 'backend', icon: SiFastapi, color: '#009688' },
+  { name: 'Google Colab', category: 'tool', icon: SiGooglecolab, color: '#F9AB00' },
+  { name: 'Prisma', category: 'backend', icon: SiPrisma, color: '#2D3748' },
+  { name: 'tRPC', category: 'backend', icon: SiTrpc, color: '#398CCB' },
+  { name: 'microCMS', category: 'backend', icon: TbFileText, color: '#2B2B2B' },
+  { name: 'NextAuth', category: 'backend', icon: TbLock, color: '#000000' },
+  { name: 'NestJS', category: 'backend', icon: SiNestjs, color: '#E0234E' },
+  { name: 'Lit', category: 'frontend', icon: SiLit, color: '#324FFF' },
+  { name: 'Storybook', category: 'tool', icon: SiStorybook, color: '#FF4785' },
+  { name: 'LINE LIFF', category: 'frontend', icon: SiLine, color: '#00B900' },
+  { name: 'TypeORM', category: 'backend', icon: SiTypeorm, color: '#FE0902' },
 ];
+
+export function getTech(name: string): Technology {
+  const tech = TECHNOLOGIES.find((t) => t.name === name);
+  if (!tech) throw new Error(`Technology not found: ${name}`);
+  return tech;
+}
 
 export const PROJECTS: Project[] = [
   {
     id: 'medical-app',
     title: '医療系オンラインアプリ',
-    description: 'オンライン服薬指導プラットフォーム',
-    longDescription: '患者向けオンライン服薬指導アプリの開発。予約型とリアルタイム型の2つの指導方式を実装し、予約変更からリアルタイム待ち行列への移行機能を開発。キャンセル率を9.62%から2.17%に削減。',
+    description: 'オンライン服薬指導プラットフォーム — 予約型・リアルタイム型の2方式対応',
+    longDescription: '患者向けオンライン服薬指導アプリのフルスタック開発を担当。予約型とリアルタイム型の2つの指導方式を実装し、予約変更からリアルタイム待ち行列へのシームレスな移行機能を設計・開発しました。バックエンドではNestJS + TypeORMで堅牢なトランザクション処理を構築し、二重予約やデータ不整合を防止。フロントエンドではLINE LIFFを活用して患者が使いやすいUIを実現しました。結果としてキャンセル率を9.62%から2.17%へと大幅に削減し、約200名の患者様にご利用いただいています。',
     technologies: [
-      TECHNOLOGIES[0], // React
-      TECHNOLOGIES[19], // NestJS
-      TECHNOLOGIES[5], // PostgreSQL
-      TECHNOLOGIES[2], // TypeScript
-      TECHNOLOGIES[22], // LINE LIFF
-      TECHNOLOGIES[23], // TypeORM
+      getTech('React'),
+      getTech('NestJS'),
+      getTech('PostgreSQL'),
+      getTech('TypeScript'),
+      getTech('LINE LIFF'),
+      getTech('TypeORM'),
     ],
     role: 'フルスタックエンジニア',
     duration: '6ヶ月〜',
@@ -76,7 +92,9 @@ export const PROJECTS: Project[] = [
       '約200名の患者様に利用',
       'フロント・バックエンド両方を担当',
     ],
-    images: [],
+    images: [
+      { url: '/projects/medical-app-1.jpg', alt: '医療系オンラインアプリ ダッシュボード' },
+    ],
     featured: true,
     category: 'fullstack',
     period: 'work',
@@ -84,32 +102,34 @@ export const PROJECTS: Project[] = [
   {
     id: 'my-portfolio',
     title: 'ポートフォリオ',
-    description: 'このサイトの作成',
-    longDescription: 'デザインから考えました',
+    description: 'Next.js 16 + Tailwind CSS 4 で構築したパーソナルサイト',
+    longDescription: 'デザインから設計・実装まで一貫して手がけたポートフォリオサイト。Next.js 16 App RouterとTailwind CSS 4を採用し、SSG（静的サイト生成）による高速表示を実現しています。SEO対策としてJSON-LD構造化データ、動的OGP画像生成、sitemap/robots自動生成を実装。ファビコンやOG画像もImageResponse APIで動的に生成しており、デザインシステムとの統一感を保っています。Vercelにデプロイし、Speed Insightsでパフォーマンスを継続モニタリングしています。',
     technologies: [
-      TECHNOLOGIES[1], // Next.js
-      TECHNOLOGIES[2], // TypeScript
-      TECHNOLOGIES[3], // Tailwind CSS
+      getTech('Next.js'),
+      getTech('TypeScript'),
+      getTech('Tailwind CSS'),
     ],
     role: 'エンジニア',
     duration: '継続中',
-    teamSize: 3,
+    teamSize: 1,
     challenges: [
-      '45種類のコンポーネント仕様の整理',
-      'MCPサーバーとしてのAPI設計',
-      'Claude Desktopとの統合',
+      'SEO対策とパフォーマンスの両立',
+      '動的OGP画像の生成',
+      'レスポンシブデザインの最適化',
     ],
     solutions: [
-      'Litによる軽量Webコンポーネント実装',
-      'Storybookでのドキュメント化',
-      'MCPプロトコルに準拠したサーバー実装',
+      'Next.js App RouterによるSSG構成',
+      'ImageResponse APIで動的OGP・favicon生成',
+      'Tailwind CSS 4のデザイントークン活用',
     ],
     results: [
-      '45コンポーネントをライブラリ化',
-      'Claude DesktopからAIアシスタント経由で利用可能',
-      '社内開発効率の向上',
+      'Lighthouse SEOスコア100達成',
+      'JSON-LD構造化データ実装',
+      'Vercelで継続的デプロイ',
     ],
-    images: [],
+    images: [
+      { url: '/projects/my-portfolio-1.jpg', alt: 'ポートフォリオ トップ画面' },
+    ],
     featured: true,
     category: 'design',
     period: 'work',
@@ -117,12 +137,12 @@ export const PROJECTS: Project[] = [
   {
     id: 'design-system',
     title: 'デザインシステム',
-    description: '社内Webコンポーネントライブラリの作成',
-    longDescription: '社内デザインシステムのWebコンポーネントライブラリ。45種類のコンポーネントを提供し、Claude Desktop向けMCPサーバーとして統合。開発者がAIアシスタントを通じてコンポーネント情報を取得可能に。',
+    description: '社内Webコンポーネントライブラリ — 45種類 + MCP統合',
+    longDescription: '社内デザインシステムとして45種類のWebコンポーネントをLit（Web Components）で実装し、Storybookでドキュメント化しました。さらにClaude Desktop向けのMCPサーバーとして統合し、AIアシスタント経由でコンポーネントの仕様・使い方・プロパティ情報を即座に取得できる仕組みを構築。フレームワーク非依存のWeb Componentsを採用することで、React・Vue・素のHTMLなど技術スタックを問わず利用可能です。社内開発チームの生産性向上に貢献しています。',
     technologies: [
-      TECHNOLOGIES[20], // Lit
-      TECHNOLOGIES[2], // TypeScript
-      TECHNOLOGIES[21], // Storybook
+      getTech('Lit'),
+      getTech('TypeScript'),
+      getTech('Storybook'),
     ],
     role: 'エンジニア',
     duration: '継続中',
@@ -142,7 +162,9 @@ export const PROJECTS: Project[] = [
       'Claude DesktopからAIアシスタント経由で利用可能',
       '社内開発効率の向上',
     ],
-    images: [],
+    images: [
+      { url: '/projects/design-system-1.jpg', alt: 'デザインシステム コンポーネント一覧' },
+    ],
     featured: true,
     category: 'design',
     period: 'work',
@@ -150,14 +172,14 @@ export const PROJECTS: Project[] = [
   {
     id: 'aicon',
     title: 'AiCON',
-    description: 'AIアイコン自動生成サービス',
-    longDescription: '撮影した写真からカスタムアイコンを自動生成するAIサービス。5ステップの直感的なフローでオリジナルアイコンを作成。FAQセクション付きで初めてのユーザーも安心。',
+    description: 'AIアイコン自動生成サービス — 写真から5ステップでオリジナルアイコン作成',
+    longDescription: '撮影した写真からAIがカスタムアイコンを自動生成するWebサービス。フロントエンドをNext.js + Tailwind CSSで構築し、バックエンドにはFastAPI + Google Colabを採用しました。アップロード→スタイル選択→生成→プレビュー→ダウンロードの直感的な5ステップフローを設計し、初めてのユーザーでも迷わず利用できるUXを実現。FAQセクションも実装してユーザーサポートを強化しました。チーム10名中の稼働メンバー3名で効率的に開発を進めました。',
     technologies: [
-      TECHNOLOGIES[1], // Next.js
-      TECHNOLOGIES[2], // TypeScript
-      TECHNOLOGIES[3], // Tailwind CSS
-      TECHNOLOGIES[13], // FastAPI
-      TECHNOLOGIES[14], // Google Colab
+      getTech('Next.js'),
+      getTech('TypeScript'),
+      getTech('Tailwind CSS'),
+      getTech('FastAPI'),
+      getTech('Google Colab'),
     ],
     role: 'フロントエンドエンジニア',
     duration: '3ヶ月',
@@ -188,16 +210,16 @@ export const PROJECTS: Project[] = [
   {
     id: 'joetsu-map',
     title: '上越まっぷ',
-    description: '上越市の観光スポット・モデルコース検索アプリ',
-    longDescription: '上越市の観光スポット検索、モデルコース表示、天気情報表示機能を備えた地域情報アプリ。T3 Stackを採用し、型安全なフルスタック開発を実現。microCMSでコンテンツを管理。',
+    description: '上越市の観光スポット・モデルコース検索アプリ — T3 Stack採用',
+    longDescription: '上越市の観光スポット検索、モデルコース表示、リアルタイム天気情報を統合した地域情報Webアプリ。T3 Stack（Next.js + tRPC + Prisma + NextAuth）を採用し、エンドツーエンドで型安全なフルスタック開発を実現しました。Google Maps APIによるルート表示、microCMSによるコンテンツ管理、天気API連携による観光計画支援機能を実装。3名のチームでフルスタックエンジニアとして4ヶ月間の開発を担当し、観光スポットの周遊促進に貢献しました。',
     technologies: [
-      TECHNOLOGIES[1], // Next.js
-      TECHNOLOGIES[2], // TypeScript
-      TECHNOLOGIES[15], // Prisma
-      TECHNOLOGIES[16], // tRPC
-      TECHNOLOGIES[11], // Google Maps
-      TECHNOLOGIES[17], // microCMS
-      TECHNOLOGIES[18], // NextAuth
+      getTech('Next.js'),
+      getTech('TypeScript'),
+      getTech('Prisma'),
+      getTech('tRPC'),
+      getTech('Google Maps'),
+      getTech('microCMS'),
+      getTech('NextAuth'),
     ],
     role: 'フルスタックエンジニア',
     duration: '4ヶ月',
@@ -288,7 +310,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
 export const SITE_CONFIG = {
   name: 'Portfolio',
   title: 'Engineer',
-  description: 'Kanei NakashimaのPortfolio',
+  description: '中島寛瑛（Kanei Nakashima）| React/Next.js/TypeScriptを中心としたフルスタックエンジニアのポートフォリオ。医療系Webアプリ開発、MCPサーバー構築、AIエージェント開発の実績。',
   author: 'Kanei Nakashima',
   email: 'iamkaneisanda@gmail.com',
   url: 'https://kanei-portfolio.vercel.app',

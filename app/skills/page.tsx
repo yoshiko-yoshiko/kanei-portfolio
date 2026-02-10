@@ -1,7 +1,16 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
 import { SkillsCarousel } from '../components/skills/SkillsCarousel';
+import { SITE_CONFIG } from '../lib/constants';
+import { PageHeader } from '../components/PageHeader';
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_CONFIG.url },
+    { '@type': 'ListItem', position: 2, name: 'Skills', item: `${SITE_CONFIG.url}/skills` },
+  ],
+};
 
 export const metadata: Metadata = {
   title: 'Skills',
@@ -15,18 +24,11 @@ export const metadata: Metadata = {
 export default function SkillsPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-[#1a1a1a]/5">
-        <div className="max-w-4xl mx-auto px-6 py-4">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm text-[#1a1a1a]/60 hover:text-[#10b981] transition-colors"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back
-          </Link>
-        </div>
-      </header>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <PageHeader />
 
       {/* Content */}
       <main className="pt-20 pb-16 px-6">

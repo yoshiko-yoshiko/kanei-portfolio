@@ -1,7 +1,16 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowLeft } from 'lucide-react';
+import { SITE_CONFIG } from '../lib/constants';
+import { PageHeader } from '../components/PageHeader';
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_CONFIG.url },
+    { '@type': 'ListItem', position: 2, name: 'About', item: `${SITE_CONFIG.url}/about` },
+  ],
+};
 
 export const metadata: Metadata = {
   title: 'About',
@@ -15,18 +24,11 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-[#1a1a1a]/5">
-        <div className="max-w-4xl mx-auto px-6 py-4">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm text-[#1a1a1a]/60 hover:text-[#10b981] transition-colors"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back
-          </Link>
-        </div>
-      </header>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <PageHeader />
 
       {/* Content */}
       <main className="pt-20 pb-16 px-6">
@@ -78,7 +80,7 @@ export default function AboutPage() {
             <div className="space-y-6">
               <div className="pl-4 border-l-2 border-[#10b981]">
                 <div className="flex justify-between items-start mb-1">
-                  <h3 className="font-medium text-[#1a1a1a]">フルスタックエンジニア</h3>
+                  <h3 className="font-semibold text-[#1a1a1a]">フルスタックエンジニア</h3>
                   <span className="text-xs text-[#1a1a1a]/40">2025.8 - Present</span>
                 </div>
                 <p className="text-sm text-[#1a1a1a]/60 mb-2">医療系Webアプリ開発</p>
@@ -87,7 +89,7 @@ export default function AboutPage() {
 
               <div className="pl-4 border-l-2 border-[#1a1a1a]/20">
                 <div className="flex justify-between items-start mb-1">
-                  <h3 className="font-medium text-[#1a1a1a]">新卒技術研修 講師リーダー</h3>
+                  <h3 className="font-semibold text-[#1a1a1a]">新卒技術研修 講師リーダー</h3>
                   <span className="text-xs text-[#1a1a1a]/40">2025.5 - 2025.8</span>
                 </div>
                 <p className="text-sm text-[#1a1a1a]/60 mb-2">約50名の新卒エンジニア育成</p>
@@ -96,7 +98,7 @@ export default function AboutPage() {
 
               <div className="pl-4 border-l-2 border-[#1a1a1a]/20">
                 <div className="flex justify-between items-start mb-1">
-                  <h3 className="font-medium text-[#1a1a1a]">システム設計・ヘルプデスク</h3>
+                  <h3 className="font-semibold text-[#1a1a1a]">システム設計・ヘルプデスク</h3>
                   <span className="text-xs text-[#1a1a1a]/40">2024.6 - 2025.5</span>
                 </div>
                 <p className="text-sm text-[#1a1a1a]/60 mb-2">電子カルテシステム</p>
@@ -105,7 +107,7 @@ export default function AboutPage() {
 
               <div className="pl-4 border-l-2 border-[#1a1a1a]/20">
                 <div className="flex justify-between items-start mb-1">
-                  <h3 className="font-medium text-[#1a1a1a]">学生エンジニア</h3>
+                  <h3 className="font-semibold text-[#1a1a1a]">学生エンジニア</h3>
                   <span className="text-xs text-[#1a1a1a]/40">2023 - 2024</span>
                 </div>
                 <p className="text-sm text-[#1a1a1a]/60 mb-2">地域企業紹介サービス開発</p>
@@ -120,25 +122,25 @@ export default function AboutPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="p-4 rounded-lg border border-[#1a1a1a]/10">
-                <h3 className="font-medium text-[#1a1a1a] mb-2">伴走力</h3>
+                <h3 className="font-semibold text-[#1a1a1a] mb-2">伴走力</h3>
                 <p className="text-xs text-[#1a1a1a]/50">
                   一人ひとりに寄り添い、チームでやり切る
                 </p>
               </div>
               <div className="p-4 rounded-lg border border-[#1a1a1a]/10">
-                <h3 className="font-medium text-[#1a1a1a] mb-2">フルスタック</h3>
+                <h3 className="font-semibold text-[#1a1a1a] mb-2">フルスタック</h3>
                 <p className="text-xs text-[#1a1a1a]/50">
                   フロント・バックエンド両方の実装経験
                 </p>
               </div>
               <div className="p-4 rounded-lg border border-[#1a1a1a]/10">
-                <h3 className="font-medium text-[#1a1a1a] mb-2">品質へのこだわり</h3>
+                <h3 className="font-semibold text-[#1a1a1a] mb-2">品質へのこだわり</h3>
                 <p className="text-xs text-[#1a1a1a]/50">
                   技術を深く理解し、高品質な設計を追求
                 </p>
               </div>
               <div className="p-4 rounded-lg border border-[#1a1a1a]/10">
-                <h3 className="font-medium text-[#1a1a1a] mb-2">AI活用</h3>
+                <h3 className="font-semibold text-[#1a1a1a] mb-2">AI活用</h3>
                 <p className="text-xs text-[#1a1a1a]/50">
                   MCPサーバー構築でAI開発効率化を推進
                 </p>

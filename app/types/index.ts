@@ -21,7 +21,7 @@ export interface Project {
 export interface Technology {
   name: string;
   category: 'frontend' | 'backend' | 'database' | 'tool' | 'design' | 'ai';
-  icon: string;
+  icon: string | React.ComponentType<{ className?: string }>;
   color: string;
 }
 
@@ -52,51 +52,3 @@ export interface SocialLink {
   icon: string;
 }
 
-export interface HeaderProps {
-  isScrolled: boolean;
-  currentPath: string;
-}
-
-export interface FooterProps {
-  socialLinks?: SocialLink[];
-}
-
-export interface PageTransitionProps {
-  children: React.ReactNode;
-  className?: string;
-}
-
-export interface HeroSectionProps {
-  title: string;
-  subtitle: string;
-  ctaText: string;
-  backgroundImage?: string;
-}
-
-export interface ProjectCardProps {
-  project: Project;
-  index: number;
-  onHover?: (project: Project | null) => void;
-}
-
-export interface SkillsSectionProps {
-  skills: SkillCategory[];
-  animationTrigger: boolean;
-}
-
-export interface ButtonProps {
-  variant?: 'primary' | 'secondary' | 'ghost';
-  size?: 'sm' | 'md' | 'lg';
-  children: React.ReactNode;
-  onClick?: () => void;
-  disabled?: boolean;
-  loading?: boolean;
-  className?: string;
-}
-
-export interface CardProps {
-  children: React.ReactNode;
-  className?: string;
-  hover?: boolean;
-  shadow?: 'sm' | 'md' | 'lg';
-}

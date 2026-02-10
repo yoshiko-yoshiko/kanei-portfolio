@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="arm-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="120" height="120" rx="24" fill="#0f172a"/>
+
+  <!-- K stem — bold white vertical bar -->
+  <rect x="33" y="30" width="10" height="60" rx="5" fill="#ffffff"/>
+
+  <!-- K upper arm — emerald gradient diagonal -->
+  <line x1="43" y1="60" x2="78" y2="30" stroke="url(#arm-grad)" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- K lower arm — emerald gradient diagonal -->
+  <line x1="43" y1="60" x2="78" y2="90" stroke="url(#arm-grad)" stroke-width="10" stroke-linecap="round"/>
+</svg>

@@ -1,8 +1,21 @@
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
+import { Poppins, BIZ_UDPGothic } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-poppins",
+  display: "swap",
+});
+
+const bizUDPGothic = BIZ_UDPGothic({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-biz-udp",
+  display: "swap",
+});
 import { SITE_CONFIG, SOCIAL_LINKS } from "./lib/constants";
 
 export const metadata: Metadata = {
@@ -14,13 +27,20 @@ export const metadata: Metadata = {
   description: SITE_CONFIG.description,
   keywords: [
     "Engineer",
+    "フルスタックエンジニア",
     "React",
     "Next.js",
     "TypeScript",
     "NestJS",
     "MCP",
+    "MCPサーバー",
+    "Claude Code",
     "AIエージェント",
     "ポートフォリオ",
+    "ポートフォリオサイト",
+    "Webアプリ開発",
+    "医療系アプリ",
+    "中島寛瑛",
     SITE_CONFIG.author,
   ],
   authors: [{ name: SITE_CONFIG.author, url: SITE_CONFIG.url }],
@@ -75,10 +95,12 @@ const jsonLd = {
   name: SITE_CONFIG.author,
   url: SITE_CONFIG.url,
   email: SITE_CONFIG.email,
+  description: SITE_CONFIG.description,
+  image: `${SITE_CONFIG.url}/og-image.png`,
   jobTitle: "Fullstack Engineer",
   worksFor: {
     "@type": "Organization",
-    name: "Tech Company",
+    name: "株式会社FIXER",
   },
   sameAs: SOCIAL_LINKS.filter((link) => link.url.startsWith("http")).map(
     (link) => link.url
@@ -102,13 +124,14 @@ export default function RootLayout({
   return (
     <html lang="ja" className="scroll-smooth">
       <head>
+        <link rel="manifest" href="/manifest.json" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body
-        className={`${GeistSans.variable} ${GeistMono.variable} font-sans antialiased`}
+        className={`${poppins.variable} ${bizUDPGothic.variable} font-sans antialiased`}
       >
         {children}
         <SpeedInsights />
