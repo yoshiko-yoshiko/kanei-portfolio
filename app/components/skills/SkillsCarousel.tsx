@@ -5,9 +5,19 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { SKILLS } from '@/app/lib/constants';
 import type { SkillCategory, Skill } from '@/app/types';
 
+// カルーセル設定
+const CAROUSEL_CONFIG = {
+  MIN_SWIPE_DISTANCE: 50,
+  SWIPE_HINT_TIMEOUT_MS: 5000,
+  TRANSITION_MS: 150,
+  SKILL_DELAY_MS: 80,
+  DRAG_RESISTANCE: 0.3,
+  MAX_SKILL_LEVEL: 5,
+} as const;
+
 // スキルバーコンポーネント（表示時にアニメーション）
 function SkillBar({ skill, isVisible, delay }: { skill: Skill; isVisible: boolean; delay: number }) {
-  const percentage = (skill.level / 5) * 100;
+  const percentage = (skill.level / CAROUSEL_CONFIG.MAX_SKILL_LEVEL) * 100;
   const IconComponent = skill.icon;
 
   return (
@@ -99,8 +109,7 @@ export function SkillsCarousel() {
   const [hasInteracted, setHasInteracted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // スワイプ感度
-  const minSwipeDistance = 50;
+  const minSwipeDistance = CAROUSEL_CONFIG.MIN_SWIPE_DISTANCE;
 
   const categories: SkillCategory[] = SKILLS;
 
@@ -119,7 +128,7 @@ export function SkillsCarousel() {
     setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % categories.length);
       setIsVisible(true);
-    }, 150);
+    }, CAROUSEL_CONFIG.TRANSITION_MS);
   }, [categories.length, markInteracted]);
 
   // 前のカテゴリへ
@@ -129,7 +138,7 @@ export function SkillsCarousel() {
     setTimeout(() => {
       setCurrentIndex((prev) => (prev - 1 + categories.length) % categories.length);
       setIsVisible(true);
-    }, 150);
+    }, CAROUSEL_CONFIG.TRANSITION_MS);
   }, [categories.length, markInteracted]);
 
   // 特定のインデックスへ
@@ -140,14 +149,14 @@ export function SkillsCarousel() {
     setTimeout(() => {
       setCurrentIndex(index);
       setIsVisible(true);
-    }, 150);
+    }, CAROUSEL_CONFIG.TRANSITION_MS);
   }, [currentIndex, markInteracted]);
 
   // 初回表示から数秒後にヒントを自動で非表示
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSwipeHint(false);
-    }, 5000);
+    }, CAROUSEL_CONFIG.SWIPE_HINT_TIMEOUT_MS);
     return () => clearTimeout(timer);
   }, []);
 
@@ -299,7 +308,7 @@ export function SkillsCarousel() {
         <div
           className="overflow-hidden rounded-2xl"
           style={{
-            transform: isDragging ? `translateX(${dragOffset * 0.3}px)` : 'translateX(0)',
+            transform: isDragging ? `translateX(${dragOffset * CAROUSEL_CONFIG.DRAG_RESISTANCE}px)` : 'translateX(0)',
             transition: isDragging ? 'none' : 'transform 0.3s ease-out'
           }}
         >
@@ -330,7 +339,7 @@ export function SkillsCarousel() {
                   key={skill.name}
                   skill={skill}
                   isVisible={isVisible}
-                  delay={index * 80}
+                  delay={index * CAROUSEL_CONFIG.SKILL_DELAY_MS}
                 />
               ))}
             </div>

@@ -1,23 +1,20 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { SITE_CONFIG } from '../lib/constants';
-import { PageHeader } from '../components/PageHeader';
+import { generateBreadcrumbJsonLd } from '../lib/utils';
+import { PageHeader } from '../components/layout/PageHeader';
 
-const breadcrumbJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_CONFIG.url },
-    { '@type': 'ListItem', position: 2, name: 'About', item: `${SITE_CONFIG.url}/about` },
-  ],
-};
+const breadcrumbJsonLd = generateBreadcrumbJsonLd(
+  [{ name: 'Home' }, { name: 'About', path: '/about' }],
+  SITE_CONFIG.url
+);
 
 export const metadata: Metadata = {
   title: 'About',
-  description: '中島寛瑛 - React/NestJSを中心としたフルスタックエンジニア。医療系Webアプリ開発、新卒50名の技術研修講師リーダー経験。',
+  description: 'Kanei Nakashima - React/NestJSを中心としたフルスタックエンジニア。医療系Webアプリ開発、新卒50名の技術研修講師リーダー経験。',
   openGraph: {
     title: 'About | Kanei Nakashima',
-    description: '中島寛瑛 - React/NestJSを中心としたフルスタックエンジニア。医療系Webアプリ開発、新卒50名の技術研修講師リーダー経験。',
+    description: 'Kanei Nakashima - React/NestJSを中心としたフルスタックエンジニア。医療系Webアプリ開発、新卒50名の技術研修講師リーダー経験。',
   },
 };
 
@@ -38,7 +35,7 @@ export default function AboutPage() {
             <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-[#10b981]/20">
               <Image
                 src="/profile.jpg"
-                alt="中島寛瑛"
+                alt="Kanei Nakashima"
                 width={128}
                 height={128}
                 className="w-full h-full object-cover"

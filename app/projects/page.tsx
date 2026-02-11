@@ -1,16 +1,13 @@
 import type { Metadata } from 'next';
 import { PROJECTS, SITE_CONFIG } from '../lib/constants';
-import { PageHeader } from '../components/PageHeader';
-import { ProjectCard } from '../components/ProjectCard';
+import { generateBreadcrumbJsonLd } from '../lib/utils';
+import { PageHeader } from '../components/layout/PageHeader';
+import { ProjectCard } from '../components/projects/ProjectCard';
 
-const breadcrumbJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_CONFIG.url },
-    { '@type': 'ListItem', position: 2, name: 'Projects', item: `${SITE_CONFIG.url}/projects` },
-  ],
-};
+const breadcrumbJsonLd = generateBreadcrumbJsonLd(
+  [{ name: 'Home' }, { name: 'Projects', path: '/projects' }],
+  SITE_CONFIG.url
+);
 
 export const metadata: Metadata = {
   title: 'Projects',

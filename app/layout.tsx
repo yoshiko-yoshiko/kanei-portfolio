@@ -1,21 +1,6 @@
 import type { Metadata } from "next";
-import { Poppins, BIZ_UDPGothic } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-poppins",
-  display: "swap",
-});
-
-const bizUDPGothic = BIZ_UDPGothic({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-biz-udp",
-  display: "swap",
-});
 import { SITE_CONFIG, SOCIAL_LINKS } from "./lib/constants";
 
 export const metadata: Metadata = {
@@ -40,7 +25,7 @@ export const metadata: Metadata = {
     "ポートフォリオサイト",
     "Webアプリ開発",
     "医療系アプリ",
-    "中島寛瑛",
+    "Kanei Nakashima",
     SITE_CONFIG.author,
   ],
   authors: [{ name: SITE_CONFIG.author, url: SITE_CONFIG.url }],
@@ -122,7 +107,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth">
       <head>
         <link rel="manifest" href="/manifest.json" />
         <script
@@ -131,7 +116,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${poppins.variable} ${bizUDPGothic.variable} font-sans antialiased`}
+        className="font-sans antialiased"
       >
         {children}
         <SpeedInsights />

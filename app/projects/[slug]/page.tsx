@@ -4,8 +4,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, ArrowRight, ExternalLink, Github } from 'lucide-react';
 import { PROJECTS, SITE_CONFIG } from '../../lib/constants';
+import { generateBreadcrumbJsonLd } from '../../lib/utils';
 import type { Project } from '../../types';
-import { PageHeader } from '../../components/PageHeader';
+import { PageHeader } from '../../components/layout/PageHeader';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -63,15 +64,14 @@ export default async function ProjectPage({ params }: Props) {
 
   const hasImages = project.images.length > 0;
 
-  const breadcrumbJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_CONFIG.url },
-      { '@type': 'ListItem', position: 2, name: 'Projects', item: `${SITE_CONFIG.url}/projects` },
-      { '@type': 'ListItem', position: 3, name: project.title, item: `${SITE_CONFIG.url}/projects/${project.id}` },
+  const breadcrumbJsonLd = generateBreadcrumbJsonLd(
+    [
+      { name: 'Home' },
+      { name: 'Projects', path: '/projects' },
+      { name: project.title, path: `/projects/${project.id}` },
     ],
-  };
+    SITE_CONFIG.url
+  );
 
   // Prev / Next project navigation
   const currentIndex = PROJECTS.findIndex((p) => p.id === project.id);
@@ -116,37 +116,20 @@ export default async function ProjectPage({ params }: Props) {
       {/* Content */}
       <main className="pb-16 px-6">
         <div className="max-w-4xl mx-auto">
-          {/* Meta Info - Reference site style */}
-          <div className="flex flex-col md:flex-row md:justify-end gap-6 mt-8 mb-10">
-            <div className="flex flex-col gap-3 md:min-w-[320px]">
-              <div className="flex items-baseline gap-4">
-                <span className="text-xs text-[#1a1a1a]/40 w-16 shrink-0">Title</span>
-                <span className="text-sm font-semibold text-[#1a1a1a]">{project.title}</span>
-              </div>
-              <div className="flex items-baseline gap-4">
-                <span className="text-xs text-[#1a1a1a]/40 w-16 shrink-0">Role</span>
-                <span className="text-sm text-[#1a1a1a]">{project.role}</span>
-              </div>
-              <div className="flex items-baseline gap-4">
-                <span className="text-xs text-[#1a1a1a]/40 w-16 shrink-0">Duration</span>
-                <span className="text-sm text-[#1a1a1a]">{project.duration}</span>
-              </div>
-              <div className="flex items-baseline gap-4">
-                <span className="text-xs text-[#1a1a1a]/40 w-16 shrink-0">Team</span>
-                <span className="text-sm text-[#1a1a1a]">{project.teamSize} members</span>
-              </div>
-              <div className="flex items-baseline gap-4">
-                <span className="text-xs text-[#1a1a1a]/40 w-16 shrink-0">Category</span>
-                <span className="text-sm text-[#1a1a1a] capitalize">{project.category}</span>
-              </div>
+          {/* Meta Info + Description */}
+          <div className="flex flex-col md:flex-row gap-8 mt-16 mb-12 md:items-start">
+            <div className="flex flex-col gap-3 text-sm text-[#1a1a1a]/70 md:w-1/3">
+              <span><span className="text-[#1a1a1a]/40 mr-2">Title</span>{project.title}</span>
+              <span><span className="text-[#1a1a1a]/40 mr-2">Role</span>{project.role}</span>
+              <span><span className="text-[#1a1a1a]/40 mr-2">Duration</span>{project.duration}</span>
+              <span><span className="text-[#1a1a1a]/40 mr-2">Team</span>{project.teamSize} members</span>
+              <span><span className="text-[#1a1a1a]/40 mr-2">Category</span><span className="capitalize">{project.category}</span></span>
             </div>
-          </div>
-
-          {/* Description */}
-          <div className="mb-12">
-            <p className="text-[#1a1a1a]/70 leading-relaxed text-base max-w-2xl">
-              {project.longDescription}
-            </p>
+            <div className="md:w-2/3">
+              <p className="text-[#1a1a1a]/70 leading-relaxed text-base">
+                {project.longDescription}
+              </p>
+            </div>
           </div>
 
           {/* Technologies */}

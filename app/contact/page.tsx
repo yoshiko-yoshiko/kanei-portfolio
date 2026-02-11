@@ -2,16 +2,13 @@ import type { Metadata } from 'next';
 import { Mail, Github, Linkedin } from 'lucide-react';
 import { ZennIcon } from '../components/icons/ZennIcon';
 import { SITE_CONFIG } from '../lib/constants';
-import { PageHeader } from '../components/PageHeader';
+import { generateBreadcrumbJsonLd } from '../lib/utils';
+import { PageHeader } from '../components/layout/PageHeader';
 
-const breadcrumbJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_CONFIG.url },
-    { '@type': 'ListItem', position: 2, name: 'Contact', item: `${SITE_CONFIG.url}/contact` },
-  ],
-};
+const breadcrumbJsonLd = generateBreadcrumbJsonLd(
+  [{ name: 'Home' }, { name: 'Contact', path: '/contact' }],
+  SITE_CONFIG.url
+);
 
 export const metadata: Metadata = {
   title: 'Contact',

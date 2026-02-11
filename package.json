@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "rm -rf .next && next dev --turbopack",
     "dev:stable": "npx next-zombie --turbo",
     "dev:webpack": "next dev",
     "dev:clean": "rm -rf .next && next dev --turbopack",

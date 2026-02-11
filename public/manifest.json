@@ -1,7 +1,7 @@
 {
   "name": "Kanei Nakashima Portfolio",
   "short_name": "Kanei Portfolio",
-  "description": "中島寛瑛 | React/Next.js/TypeScriptを中心としたフルスタックエンジニアのポートフォリオ",
+  "description": "Kanei Nakashima | React/Next.js/TypeScriptを中心としたフルスタックエンジニアのポートフォリオ",
   "start_url": "/",
   "display": "standalone",
   "theme_color": "#10b981",

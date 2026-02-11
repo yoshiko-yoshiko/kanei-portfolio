@@ -30,7 +30,7 @@ export function HeroSection() {
           <div className="w-[100px] h-[100px] mx-auto mb-5 rounded-full overflow-hidden border-4 border-[#10b981]/20">
             <Image
               src="/profile.jpg"
-              alt="中島寛瑛"
+              alt="Kanei Nakashima"
               width={100}
               height={100}
               className="w-full h-full object-cover"
