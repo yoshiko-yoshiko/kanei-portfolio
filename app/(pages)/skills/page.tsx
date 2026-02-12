@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
-import { SkillsCarousel } from '../pages/skills/SkillsCarousel';
-import { SITE_CONFIG } from '../lib/constants';
-import { generateBreadcrumbJsonLd } from '../lib/utils';
-import { PageHeader } from '../components/PageHeader';
+import { SkillsCarousel } from './SkillsCarousel';
+import { SITE_CONFIG } from '../../lib/constants';
+import { generateBreadcrumbJsonLd } from '../../lib/utils';
+import { PageHeader } from '../../components/PageHeader';
 
 const breadcrumbJsonLd = generateBreadcrumbJsonLd(
   [{ name: 'Home' }, { name: 'Skills', path: '/skills' }],

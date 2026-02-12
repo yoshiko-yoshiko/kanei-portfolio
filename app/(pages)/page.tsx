@@ -1,6 +1,6 @@
 'use client';
 
-import { HeroSection } from './pages/home/HeroSection';
+import { HeroSection } from './HeroSection';
 
 export default function Home() {
   return (

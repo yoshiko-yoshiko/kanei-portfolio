@@ -3,11 +3,11 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, ArrowRight, ExternalLink, Github } from 'lucide-react';
-import { SITE_CONFIG } from '../../lib/constants';
-import { PROJECTS } from '../../pages/projects/projects-data';
-import { generateBreadcrumbJsonLd } from '../../lib/utils';
-import type { Project } from '../../types';
-import { PageHeader } from '../../components/PageHeader';
+import { SITE_CONFIG } from '../../../lib/constants';
+import { PROJECTS } from '../projects-data';
+import { generateBreadcrumbJsonLd } from '../../../lib/utils';
+import type { Project } from '../../../types';
+import { PageHeader } from '../../../components/PageHeader';
 
 interface Props {
   params: Promise<{ slug: string }>;
