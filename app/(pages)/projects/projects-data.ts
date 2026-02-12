@@ -5,6 +5,7 @@ import portfolioImg from '@/app/_assets/images/projects/my-portfolio-1.jpg';
 import designSystemImg from '@/app/_assets/images/projects/design-system-1.jpg';
 import aiconImg from '@/app/_assets/images/projects/aicon-1.jpg';
 import joetsuMapImg from '@/app/_assets/images/projects/joetsu-map-1.jpg';
+import reviewlensImg from '@/app/_assets/images/projects/reviewlens-1.png';
 import {
   SiGooglechrome,
   SiCloudflare,
@@ -231,7 +232,9 @@ export const PROJECTS: Project[] = [
       'サクラレビュー判定機能を実装',
       'フリーミアムモデルで収益化設計済み',
     ],
-    images: [],
+    images: [
+      { url: reviewlensImg.src, alt: 'ReviewLens - AI Review Analyzer' },
+    ],
     featured: true,
     category: 'ai',
     period: 'work',
