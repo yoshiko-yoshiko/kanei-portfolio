@@ -5,6 +5,14 @@ import portfolioImg from '@/app/_assets/images/projects/my-portfolio-1.jpg';
 import designSystemImg from '@/app/_assets/images/projects/design-system-1.jpg';
 import aiconImg from '@/app/_assets/images/projects/aicon-1.jpg';
 import joetsuMapImg from '@/app/_assets/images/projects/joetsu-map-1.jpg';
+import {
+  SiGooglechrome,
+  SiCloudflare,
+  SiSupabase,
+  SiStripe,
+  SiVite,
+} from 'react-icons/si';
+import { TbRobot, TbFlame } from 'react-icons/tb';
 
 export const PROJECTS: Project[] = [
   {
@@ -188,5 +196,44 @@ export const PROJECTS: Project[] = [
     featured: true,
     category: 'web',
     period: 'student',
+  },
+  {
+    id: 'reviewlens',
+    title: 'ReviewLens',
+    description: 'AmazonレビューをAIで自動分析するChrome拡張機能 — サクラレビュー判定・フリーミアム収益化',
+    longDescription: 'AmazonレビューをAIで自動分析するChrome拡張機能。商品ページのレビューを即座に分析し、良い点・悪い点・総合スコア・サクラレビュー判定をサイドパネルに表示します。Chrome Manifest V3に準拠した拡張機能をTypeScript + React + Viteで構築し、バックエンドにはCloudflare Workers + Honoを採用。Claude APIによるレビュー分析ロジックを実装し、ユーザーデータはSupabaseで管理。Stripeによる決済連携でフリーミアムモデルの収益化を実現しています。',
+    technologies: [
+      { name: 'Chrome Extension', category: 'frontend' as const, icon: SiGooglechrome, color: '#4285F4' },
+      getTech('TypeScript'),
+      getTech('React'),
+      { name: 'Vite', category: 'tool' as const, icon: SiVite, color: '#646CFF' },
+      { name: 'Cloudflare Workers', category: 'backend' as const, icon: SiCloudflare, color: '#F38020' },
+      { name: 'Hono', category: 'backend' as const, icon: TbFlame, color: '#FF6A00' },
+      { name: 'Claude API', category: 'ai' as const, icon: TbRobot, color: '#D97706' },
+      { name: 'Supabase', category: 'database' as const, icon: SiSupabase, color: '#3ECF8E' },
+      { name: 'Stripe', category: 'backend' as const, icon: SiStripe, color: '#635BFF' },
+    ],
+    role: 'フルスタックエンジニア',
+    duration: '開発中',
+    teamSize: 1,
+    challenges: [
+      'Chrome Manifest V3の制約内での拡張機能設計',
+      'レビューのサクラ判定アルゴリズムの精度向上',
+      'フリーミアムモデルの決済フロー実装',
+    ],
+    solutions: [
+      'サイドパネルUIでユーザー体験を最適化',
+      'Claude APIによる高精度なレビュー分析',
+      'Stripe連携でシームレスな課金体験を実現',
+    ],
+    results: [
+      'レビュー分析をワンクリックで実行可能',
+      'サクラレビュー判定機能を実装',
+      'フリーミアムモデルで収益化設計済み',
+    ],
+    images: [],
+    featured: true,
+    category: 'ai',
+    period: 'work',
   },
 ];
