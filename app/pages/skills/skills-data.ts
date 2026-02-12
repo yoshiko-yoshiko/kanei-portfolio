@@ -4,7 +4,7 @@ import {
   SiNestjs, SiNodedotjs, SiPostgresql, SiAmazondynamodb,
   SiGit, SiDocker, SiFirebase, SiStorybook, SiFigma,
   TbBrandOpenai, TbRobot, TbDatabase, TbPalette,
-} from './technologies';
+} from '@/app/lib/constants/technologies';
 
 export const SKILLS: SkillCategory[] = [
   {

@@ -1,5 +1,5 @@
 import type { Project } from '@/app/types';
-import { getTech } from './technologies';
+import { getTech } from '@/app/lib/constants/technologies';
 
 export const PROJECTS: Project[] = [
   {

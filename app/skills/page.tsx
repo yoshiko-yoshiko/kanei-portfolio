@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SkillsCarousel } from './_components/SkillsCarousel';
+import { SkillsCarousel } from '../pages/skills/SkillsCarousel';
 import { SITE_CONFIG } from '../lib/constants';
 import { generateBreadcrumbJsonLd } from '../lib/utils';
 import { PageHeader } from '../components/PageHeader';

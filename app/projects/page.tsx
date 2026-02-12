@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
-import { PROJECTS, SITE_CONFIG } from '../lib/constants';
+import { SITE_CONFIG } from '../lib/constants';
+import { PROJECTS } from '../pages/projects/projects-data';
 import { generateBreadcrumbJsonLd } from '../lib/utils';
 import { PageHeader } from '../components/PageHeader';
-import { ProjectCard } from './_components/ProjectCard';
+import { ProjectCard } from '../pages/projects/ProjectCard';
 
 const breadcrumbJsonLd = generateBreadcrumbJsonLd(
   [{ name: 'Home' }, { name: 'Projects', path: '/projects' }],

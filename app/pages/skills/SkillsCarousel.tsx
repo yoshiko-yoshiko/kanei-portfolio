@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { SKILLS } from '@/app/lib/constants';
+import { SKILLS } from './skills-data';
 import type { SkillCategory, Skill } from '@/app/types';
 
 // カルーセル設定
