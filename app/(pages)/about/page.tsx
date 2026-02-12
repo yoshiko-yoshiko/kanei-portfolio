@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { SITE_CONFIG } from '../../lib/constants';
+import profileImg from '@/app/_assets/images/profile.jpg';
 import { generateBreadcrumbJsonLd } from '../../lib/utils';
 import { PageHeader } from '../../components/PageHeader';
 
@@ -34,7 +35,7 @@ export default function AboutPage() {
           <div className="text-center mb-12">
             <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-[#10b981]/20">
               <Image
-                src="/profile.jpg"
+                src={profileImg}
                 alt="Kanei Nakashima"
                 width={128}
                 height={128}

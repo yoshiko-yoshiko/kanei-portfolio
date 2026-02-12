@@ -1,5 +1,10 @@
 import type { Project } from '@/app/types';
 import { getTech } from '@/app/lib/constants/technologies';
+import medicalAppImg from '@/app/_assets/images/projects/medical-app-1.jpg';
+import portfolioImg from '@/app/_assets/images/projects/my-portfolio-1.jpg';
+import designSystemImg from '@/app/_assets/images/projects/design-system-1.jpg';
+import aiconImg from '@/app/_assets/images/projects/aicon-1.jpg';
+import joetsuMapImg from '@/app/_assets/images/projects/joetsu-map-1.jpg';
 
 export const PROJECTS: Project[] = [
   {
@@ -31,7 +36,7 @@ export const PROJECTS: Project[] = [
       'フロント・バックエンド両方を担当',
     ],
     images: [
-      { url: '/projects/medical-app-1.jpg', alt: '医療系オンラインアプリ ダッシュボード' },
+      { url: medicalAppImg.src, alt: '医療系オンラインアプリ ダッシュボード' },
     ],
     featured: true,
     category: 'fullstack',
@@ -66,7 +71,7 @@ export const PROJECTS: Project[] = [
       'Vercelで継続的デプロイ',
     ],
     images: [
-      { url: '/projects/my-portfolio-1.jpg', alt: 'ポートフォリオ トップ画面' },
+      { url: portfolioImg.src, alt: 'ポートフォリオ トップ画面' },
     ],
     featured: true,
     category: 'design',
@@ -101,7 +106,7 @@ export const PROJECTS: Project[] = [
       '社内開発効率の向上',
     ],
     images: [
-      { url: '/projects/design-system-1.jpg', alt: 'デザインシステム コンポーネント一覧' },
+      { url: designSystemImg.src, alt: 'デザインシステム コンポーネント一覧' },
     ],
     featured: true,
     category: 'design',
@@ -138,7 +143,7 @@ export const PROJECTS: Project[] = [
       'チーム10名中、稼働3名で効率的な開発',
     ],
     images: [
-      { url: '/projects/aicon-1.jpg', alt: 'AiCON メイン画面' },
+      { url: aiconImg.src, alt: 'AiCON メイン画面' },
     ],
     liveUrl: 'https://aicon-one.vercel.app/',
     featured: true,
@@ -178,7 +183,7 @@ export const PROJECTS: Project[] = [
       '天気情報連携で計画立案をサポート',
     ],
     images: [
-      { url: '/projects/joetsu-map-1.jpg', alt: '上越まっぷ トップ画面' },
+      { url: joetsuMapImg.src, alt: '上越まっぷ トップ画面' },
     ],
     featured: true,
     category: 'web',

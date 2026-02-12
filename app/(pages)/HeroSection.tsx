@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Github, Linkedin, FolderOpen, Code2, User, Mail } from 'lucide-react';
 import { ZennIcon } from '../components/icons/ZennIcon';
+import profileImg from '@/app/_assets/images/profile.jpg';
 
 // 内部ページリンク
 const INTERNAL_LINKS = [
@@ -29,7 +30,7 @@ export function HeroSection() {
           {/* Profile Image */}
           <div className="w-[100px] h-[100px] mx-auto mb-5 rounded-full overflow-hidden border-4 border-[#10b981]/20">
             <Image
-              src="/profile.jpg"
+              src={profileImg}
               alt="Kanei Nakashima"
               width={100}
               height={100}
