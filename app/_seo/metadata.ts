@@ -39,20 +39,11 @@ export const siteMetadata: Metadata = {
     title: `${SITE_CONFIG.author} | ${SITE_CONFIG.title}`,
     description: SITE_CONFIG.description,
     siteName: SITE_CONFIG.name,
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: `${SITE_CONFIG.author} Portfolio`,
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${SITE_CONFIG.author} | ${SITE_CONFIG.title}`,
     description: SITE_CONFIG.description,
-    images: ["/og-image.png"],
   },
   robots: {
     index: true,

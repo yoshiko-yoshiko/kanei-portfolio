@@ -7,7 +7,7 @@ export const personJsonLd = {
   url: SITE_CONFIG.url,
   email: SITE_CONFIG.email,
   description: SITE_CONFIG.description,
-  image: `${SITE_CONFIG.url}/og-image.png`,
+  image: `${SITE_CONFIG.url}/opengraph-image`,
   jobTitle: "Fullstack Engineer",
   worksFor: {
     "@type": "Organization",
