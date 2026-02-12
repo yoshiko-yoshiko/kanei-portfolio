@@ -6,7 +6,7 @@ import { ArrowLeft, ArrowRight, ExternalLink, Github } from 'lucide-react';
 import { PROJECTS, SITE_CONFIG } from '../../lib/constants';
 import { generateBreadcrumbJsonLd } from '../../lib/utils';
 import type { Project } from '../../types';
-import { PageHeader } from '../../components/layout/PageHeader';
+import { PageHeader } from '../../components/PageHeader';
 
 interface Props {
   params: Promise<{ slug: string }>;
