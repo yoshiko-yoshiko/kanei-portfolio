@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 import { SITE_CONFIG } from './lib/constants';
-import { PROJECTS } from './projects/projects-data';
+import { PROJECTS } from './(pages)/projects/projects-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_CONFIG.url;

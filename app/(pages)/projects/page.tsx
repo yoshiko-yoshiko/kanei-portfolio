@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
-import { SITE_CONFIG } from '../lib/constants';
+import { SITE_CONFIG } from '../../lib/constants';
 import { PROJECTS } from './projects-data';
-import { generateBreadcrumbJsonLd } from '../lib/utils';
-import { PageHeader } from '../components/PageHeader';
+import { generateBreadcrumbJsonLd } from '../../lib/utils';
+import { PageHeader } from '../../components/PageHeader';
 import { ProjectCard } from './ProjectCard';
 
 const breadcrumbJsonLd = generateBreadcrumbJsonLd(

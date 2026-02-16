@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Github, Linkedin, FolderOpen, Code2, User, Mail } from 'lucide-react';
-import { ZennIcon } from './components/icons/ZennIcon';
+import { ZennIcon } from '../components/icons/ZennIcon';
 import profileImg from '@/app/_assets/images/profile.jpg';
 
 // 内部ページリンク
