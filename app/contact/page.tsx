@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { Mail, Github, Linkedin } from 'lucide-react';
-import { ZennIcon } from '../../components/icons/ZennIcon';
-import { SITE_CONFIG } from '../../lib/constants';
-import { generateBreadcrumbJsonLd } from '../../lib/utils';
-import { PageHeader } from '../../components/PageHeader';
+import { ZennIcon } from '../components/icons/ZennIcon';
+import { SITE_CONFIG } from '../lib/constants';
+import { generateBreadcrumbJsonLd } from '../lib/utils';
+import { PageHeader } from '../components/PageHeader';
 
 const breadcrumbJsonLd = generateBreadcrumbJsonLd(
   [{ name: 'Home' }, { name: 'Contact', path: '/contact' }],

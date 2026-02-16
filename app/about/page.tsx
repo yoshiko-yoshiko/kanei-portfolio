@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { SITE_CONFIG } from '../../lib/constants';
+import { SITE_CONFIG } from '../lib/constants';
 import profileImg from '@/app/_assets/images/profile.jpg';
-import { generateBreadcrumbJsonLd } from '../../lib/utils';
-import { PageHeader } from '../../components/PageHeader';
+import { generateBreadcrumbJsonLd } from '../lib/utils';
+import { PageHeader } from '../components/PageHeader';
 
 const breadcrumbJsonLd = generateBreadcrumbJsonLd(
   [{ name: 'Home' }, { name: 'About', path: '/about' }],
