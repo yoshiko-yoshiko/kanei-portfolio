@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import { AlertTriangle } from 'lucide-react';
 
 export default function Error({
@@ -9,6 +10,20 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  useEffect(() => {
+    console.error(
+      JSON.stringify({
+        level: 'error',
+        type: 'error_boundary',
+        message: error.message,
+        digest: error.digest,
+        stack: error.stack,
+        url: typeof window !== 'undefined' ? window.location.href : undefined,
+        timestamp: new Date().toISOString(),
+      })
+    );
+  }, [error]);
+
   return (
     <div className="min-h-screen bg-white flex items-center justify-center px-6">
       <div className="text-center max-w-md">
