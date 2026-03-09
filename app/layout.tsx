@@ -5,10 +5,11 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { siteMetadata } from "./_seo/metadata";
 import { personJsonLd } from "./_seo/jsonld";
+import { env } from "./lib/env";
 
 export const metadata: Metadata = siteMetadata;
 
-const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+const gaId = env.GA_MEASUREMENT_ID;
 
 export default function RootLayout({
   children,
