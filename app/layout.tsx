@@ -18,7 +18,6 @@ export default function RootLayout({
   return (
     <html lang="ja" className="scroll-smooth">
       <head>
-        <link rel="manifest" href="/manifest.json" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
