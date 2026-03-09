@@ -23,7 +23,6 @@ export const siteMetadata: Metadata = {
     "ポートフォリオサイト",
     "Webアプリ開発",
     "医療系アプリ",
-    "Kanei Nakashima",
     SITE_CONFIG.author,
   ],
   authors: [{ name: SITE_CONFIG.author, url: SITE_CONFIG.url }],
@@ -57,7 +56,6 @@ export const siteMetadata: Metadata = {
     },
   },
   verification: {
-    // Google Search Console verification (add your code when available)
-    // google: "your-verification-code",
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
   },
 };
