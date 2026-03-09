@@ -11,7 +11,6 @@ export const SiTailwindcss = stub;
 export const SiNestjs = stub;
 export const SiNodedotjs = stub;
 export const SiPostgresql = stub;
-export const SiAmazondynamodb = stub;
 export const SiGit = stub;
 export const SiDocker = stub;
 export const SiFirebase = stub;

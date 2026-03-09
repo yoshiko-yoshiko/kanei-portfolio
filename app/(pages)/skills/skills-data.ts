@@ -1,7 +1,7 @@
 import type { SkillCategory } from '@/app/types';
 import {
   SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiLit,
-  SiNestjs, SiNodedotjs, SiPostgresql, SiAmazondynamodb,
+  SiNestjs, SiNodedotjs, SiPostgresql,
   SiGit, SiDocker, SiFirebase, SiStorybook, SiFigma,
   TbBrandOpenai, TbRobot, TbDatabase, TbPalette,
 } from '@/app/lib/constants/technologies';
@@ -26,7 +26,7 @@ export const SKILLS: SkillCategory[] = [
       { name: 'Node.js', level: 3, yearsOfExperience: 2, icon: SiNodedotjs },
       { name: 'PostgreSQL', level: 3, yearsOfExperience: 1, icon: SiPostgresql },
       { name: 'TypeORM', level: 3, yearsOfExperience: 1, icon: TbDatabase },
-      { name: 'DynamoDB', level: 3, yearsOfExperience: 1, icon: SiAmazondynamodb },
+      { name: 'DynamoDB', level: 3, yearsOfExperience: 1, icon: TbDatabase },
     ],
   },
   {

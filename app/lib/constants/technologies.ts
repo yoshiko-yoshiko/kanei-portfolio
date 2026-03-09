@@ -7,7 +7,6 @@ import {
   SiNestjs,
   SiNodedotjs,
   SiPostgresql,
-  SiAmazondynamodb,
   SiGit,
   SiDocker,
   SiFirebase,
@@ -63,7 +62,7 @@ export function getTech(name: string): Technology {
 // Skills用のアイコンも再エクスポート（skills.tsで使用）
 export {
   SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiLit,
-  SiNestjs, SiNodedotjs, SiPostgresql, SiAmazondynamodb,
+  SiNestjs, SiNodedotjs, SiPostgresql,
   SiGit, SiDocker, SiFirebase, SiStorybook, SiFigma,
   TbBrandOpenai, TbRobot, TbDatabase, TbPalette,
 };
