@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { Home, ArrowLeft, Search } from 'lucide-react';
+import { OUTLINE_HOVER } from './lib/constants';
 
 export default function NotFound() {
   return (
@@ -38,7 +39,7 @@ export default function NotFound() {
           </Link>
           <button
             onClick={() => typeof window !== 'undefined' && window.history.back()}
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-foreground/10 text-foreground/70 font-medium rounded-lg hover:border-primary hover:text-primary transition-colors"
+            className={`inline-flex items-center justify-center gap-2 px-6 py-3 text-foreground/70 font-medium rounded-lg ${OUTLINE_HOVER}`}
           >
             <ArrowLeft className="w-4 h-4" />
             前のページへ

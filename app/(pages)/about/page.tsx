@@ -12,10 +12,10 @@ const breadcrumbJsonLd = generateBreadcrumbJsonLd(
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'Kanei Nakashima - React/NestJSを中心としたフルスタックエンジニア。医療系Webアプリ開発、新卒50名の技術研修講師リーダー経験。',
+  description: `${SITE_CONFIG.author} - React/NestJSを中心としたフルスタックエンジニア。医療系Webアプリ開発、新卒50名の技術研修講師リーダー経験。`,
   openGraph: {
-    title: 'About | Kanei Nakashima',
-    description: 'Kanei Nakashima - React/NestJSを中心としたフルスタックエンジニア。医療系Webアプリ開発、新卒50名の技術研修講師リーダー経験。',
+    title: `About | ${SITE_CONFIG.author}`,
+    description: `${SITE_CONFIG.author} - React/NestJSを中心としたフルスタックエンジニア。医療系Webアプリ開発、新卒50名の技術研修講師リーダー経験。`,
   },
 };
 
@@ -36,7 +36,7 @@ export default function AboutPage() {
             <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary/20">
               <Image
                 src={profileImg}
-                alt="Kanei Nakashima"
+                alt={SITE_CONFIG.author}
                 width={128}
                 height={128}
                 className="w-full h-full object-cover"

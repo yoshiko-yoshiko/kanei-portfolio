@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, ArrowRight, ExternalLink, Github } from 'lucide-react';
-import { SITE_CONFIG } from '../../../lib/constants';
+import { SITE_CONFIG, NAV_CARD_HOVER } from '../../../lib/constants';
 import { PROJECTS } from '../projects-data';
 import { generateBreadcrumbJsonLd } from '../../../lib/utils';
 import type { Project } from '../../../types';
@@ -246,7 +246,7 @@ export default async function ProjectPage({ params }: Props) {
               {/* Previous */}
               <Link
                 href={`/projects/${prevProject.id}`}
-                className="group flex items-center gap-4 p-5 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors"
+                className={`group flex items-center gap-4 p-5 rounded-xl ${NAV_CARD_HOVER}`}
               >
                 <ArrowLeft className="h-5 w-5 text-foreground/30 group-hover:text-primary group-hover:-translate-x-1 transition-all flex-shrink-0" />
                 <div className="min-w-0">
@@ -260,7 +260,7 @@ export default async function ProjectPage({ params }: Props) {
               {/* Next */}
               <Link
                 href={`/projects/${nextProject.id}`}
-                className="group flex items-center justify-end gap-4 p-5 rounded-xl border border-foreground/10 hover:border-primary/30 transition-colors text-right"
+                className={`group flex items-center justify-end gap-4 p-5 rounded-xl ${NAV_CARD_HOVER} text-right`}
               >
                 <div className="min-w-0">
                   <span className="text-xs text-foreground/40">Next</span>

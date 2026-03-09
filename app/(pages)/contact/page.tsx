@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Mail, Github, Linkedin } from 'lucide-react';
 import { ZennIcon } from '../../components/icons/ZennIcon';
-import { SITE_CONFIG } from '../../lib/constants';
+import { SITE_CONFIG, CARD_HOVER } from '../../lib/constants';
 import { generateBreadcrumbJsonLd } from '../../lib/utils';
 import { PageHeader } from '../../components/PageHeader';
 
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: 'Contact',
   description: 'お仕事のご依頼、技術的な質問など、お気軽にご連絡ください。GitHub, LinkedIn, Zenn, Emailでコンタクト可能です。',
   openGraph: {
-    title: 'Contact | Kanei Nakashima',
+    title: `Contact | ${SITE_CONFIG.author}`,
     description: 'お仕事のご依頼、技術的な質問など、お気軽にご連絡ください。',
   },
 };
@@ -23,7 +23,7 @@ const CONTACT_LINKS = [
   { name: 'Email', url: 'mailto:iamkaneisanda@gmail.com', icon: Mail, description: 'iamkaneisanda@gmail.com' },
   { name: 'GitHub', url: 'https://github.com/yoshiko-yoshiko', icon: Github, description: '@yoshiko-yoshiko' },
   { name: 'Zenn', url: 'https://zenn.dev/aiueo700', icon: ZennIcon, description: '@aiueo700' },
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/kanei-nakashima-571257344/', icon: Linkedin, description: 'Kanei Nakashima' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/kanei-nakashima-571257344/', icon: Linkedin, description: SITE_CONFIG.author },
 ];
 
 export default function ContactPage() {
@@ -54,7 +54,7 @@ export default function ContactPage() {
                   href={link.url}
                   target={link.url.startsWith('mailto:') ? undefined : '_blank'}
                   rel={link.url.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-                  className="flex items-center gap-4 p-4 rounded-lg border border-foreground/10 hover:border-primary hover:bg-primary/5 transition-colors group"
+                  className={`flex items-center gap-4 p-4 rounded-lg ${CARD_HOVER} group`}
                 >
                   <div className="w-10 h-10 rounded-full bg-foreground/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
                     <IconComponent className="h-5 w-5 text-foreground/50 group-hover:text-primary transition-colors" />
