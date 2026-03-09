@@ -1,10 +1,10 @@
 import type { SocialLink } from '@/app/types';
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  { name: 'GitHub', url: 'https://github.com/yoshiko-yoshiko', icon: 'Github' },
-  { name: 'Zenn', url: 'https://zenn.dev/aiueo700', icon: 'BookOpen' },
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/kanei-nakashima-571257344/', icon: 'Linkedin' },
-  { name: 'Email', url: 'mailto:iamkaneisanda@gmail.com', icon: 'Mail' },
+  { name: 'GitHub', url: 'https://github.com/yoshiko-yoshiko' },
+  { name: 'Zenn', url: 'https://zenn.dev/aiueo700' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/kanei-nakashima-571257344/' },
+  { name: 'Email', url: 'mailto:iamkaneisanda@gmail.com' },
 ];
 
 export const SITE_CONFIG = {
