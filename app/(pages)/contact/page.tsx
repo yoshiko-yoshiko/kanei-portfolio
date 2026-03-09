@@ -40,8 +40,8 @@ export default function ContactPage() {
         <div className="max-w-[600px] mx-auto">
           {/* Title */}
           <div className="text-center mb-12">
-            <h1 className="text-3xl font-bold text-[#1a1a1a] mb-2">Contact</h1>
-            <p className="text-[#1a1a1a]/60">Get in touch with me</p>
+            <h1 className="text-3xl font-bold text-foreground mb-2">Contact</h1>
+            <p className="text-foreground/60">Get in touch with me</p>
           </div>
 
           {/* Contact Links */}
@@ -54,14 +54,14 @@ export default function ContactPage() {
                   href={link.url}
                   target={link.url.startsWith('mailto:') ? undefined : '_blank'}
                   rel={link.url.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-                  className="flex items-center gap-4 p-4 rounded-lg border border-[#1a1a1a]/10 hover:border-[#10b981] hover:bg-[#10b981]/5 transition-colors group"
+                  className="flex items-center gap-4 p-4 rounded-lg border border-foreground/10 hover:border-primary hover:bg-primary/5 transition-colors group"
                 >
-                  <div className="w-10 h-10 rounded-full bg-[#1a1a1a]/5 flex items-center justify-center group-hover:bg-[#10b981]/10 transition-colors">
-                    <IconComponent className="h-5 w-5 text-[#1a1a1a]/50 group-hover:text-[#10b981] transition-colors" />
+                  <div className="w-10 h-10 rounded-full bg-foreground/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                    <IconComponent className="h-5 w-5 text-foreground/50 group-hover:text-primary transition-colors" />
                   </div>
                   <div>
-                    <div className="font-medium text-[#1a1a1a]">{link.name}</div>
-                    <div className="text-sm text-[#1a1a1a]/50">{link.description}</div>
+                    <div className="font-medium text-foreground">{link.name}</div>
+                    <div className="text-sm text-foreground/50">{link.description}</div>
                   </div>
                 </a>
               );
@@ -69,8 +69,8 @@ export default function ContactPage() {
           </div>
 
           {/* Message */}
-          <div className="mt-12 p-6 rounded-xl bg-[#10b981]/5 text-center">
-            <p className="text-sm text-[#1a1a1a]/70 leading-relaxed">
+          <div className="mt-12 p-6 rounded-xl bg-primary/5 text-center">
+            <p className="text-sm text-foreground/70 leading-relaxed">
               プロジェクトのご相談、転職のお話、技術的な質問など、
               <br />
               お気軽にご連絡ください。

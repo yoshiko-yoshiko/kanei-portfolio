@@ -33,8 +33,8 @@ export default function ProjectsPage() {
         <div className="max-w-4xl mx-auto">
           {/* Title */}
           <div className="text-center mb-12">
-            <h1 className="text-3xl font-bold text-[#1a1a1a] mb-2">Projects</h1>
-            <p className="text-[#1a1a1a]/60">Selected works and case studies</p>
+            <h1 className="text-3xl font-bold text-foreground mb-2">Projects</h1>
+            <p className="text-foreground/60">Selected works and case studies</p>
           </div>
 
           {/* Work Projects */}

@@ -32,8 +32,8 @@ export default function SkillsPage() {
         <div className="max-w-[600px] mx-auto">
           {/* Title */}
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-[#1a1a1a] mb-2">Skills</h1>
-            <p className="text-[#1a1a1a]/60">Technical expertise and tools</p>
+            <h1 className="text-3xl font-bold text-foreground mb-2">Skills</h1>
+            <p className="text-foreground/60">Technical expertise and tools</p>
           </div>
 
           {/* Skills Carousel */}

@@ -10,19 +10,19 @@ interface ProjectCardProps {
 
 const VARIANT_STYLES = {
   work: {
-    borderHover: 'hover:border-[#10b981]/30',
-    badgeColor: 'text-[#10b981] bg-[#10b981]/10',
-    arrowHover: 'group-hover:text-[#10b981]',
-    titleHover: 'group-hover:text-[#10b981]',
-    linkHover: 'hover:text-[#10b981]',
+    borderHover: 'hover:border-primary/30',
+    badgeColor: 'text-primary bg-primary/10',
+    arrowHover: 'group-hover:text-primary',
+    titleHover: 'group-hover:text-primary',
+    linkHover: 'hover:text-primary',
     label: 'Work',
   },
   student: {
-    borderHover: 'hover:border-[#f97316]/30',
-    badgeColor: 'text-[#f97316] bg-[#f97316]/10',
-    arrowHover: 'group-hover:text-[#f97316]',
-    titleHover: 'group-hover:text-[#f97316]',
-    linkHover: 'hover:text-[#f97316]',
+    borderHover: 'hover:border-secondary/30',
+    badgeColor: 'text-secondary bg-secondary/10',
+    arrowHover: 'group-hover:text-secondary',
+    titleHover: 'group-hover:text-secondary',
+    linkHover: 'hover:text-secondary',
     label: 'Student',
   },
 };
@@ -33,11 +33,11 @@ export function ProjectCard({ project, variant }: ProjectCardProps) {
 
   return (
     <div
-      className={`group relative rounded-xl border border-[#1a1a1a]/10 ${styles.borderHover} transition-colors overflow-hidden`}
+      className={`group relative rounded-xl border border-foreground/10 ${styles.borderHover} transition-colors overflow-hidden`}
     >
       {/* Thumbnail */}
       {thumbnail && (
-        <div className="relative w-full aspect-[16/9] overflow-hidden bg-[#1a1a1a]/5">
+        <div className="relative w-full aspect-[16/9] overflow-hidden bg-foreground/5">
           <Image
             src={thumbnail.url}
             alt={thumbnail.alt}
@@ -54,16 +54,16 @@ export function ProjectCard({ project, variant }: ProjectCardProps) {
           <span className={`inline-block px-2 py-1 text-xs font-medium ${styles.badgeColor} rounded`}>
             {styles.label}
           </span>
-          <ArrowRight className={`h-4 w-4 text-[#1a1a1a]/20 ${styles.arrowHover} group-hover:translate-x-1 transition-all`} />
+          <ArrowRight className={`h-4 w-4 text-foreground/20 ${styles.arrowHover} group-hover:translate-x-1 transition-all`} />
         </div>
 
-        <h3 className={`text-lg font-semibold text-[#1a1a1a] mb-2 ${styles.titleHover} transition-colors`}>
+        <h3 className={`text-lg font-semibold text-foreground mb-2 ${styles.titleHover} transition-colors`}>
           <Link href={`/projects/${project.id}`} className="before:absolute before:inset-0">
             {project.title}
           </Link>
         </h3>
 
-        <p className="text-sm text-[#1a1a1a]/60 mb-4 line-clamp-2">
+        <p className="text-sm text-foreground/60 mb-4 line-clamp-2">
           {project.description}
         </p>
 
@@ -72,7 +72,7 @@ export function ProjectCard({ project, variant }: ProjectCardProps) {
         {project.technologies.slice(0, 4).map((tech) => (
           <span
             key={tech.name}
-            className="px-2 py-0.5 text-xs text-[#1a1a1a]/50 bg-[#1a1a1a]/5 rounded"
+            className="px-2 py-0.5 text-xs text-foreground/50 bg-foreground/5 rounded"
           >
             {tech.name}
           </span>
@@ -86,7 +86,7 @@ export function ProjectCard({ project, variant }: ProjectCardProps) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex items-center gap-1.5 text-xs text-[#1a1a1a]/60 ${styles.linkHover} transition-colors`}
+              className={`inline-flex items-center gap-1.5 text-xs text-foreground/60 ${styles.linkHover} transition-colors`}
             >
               <ExternalLink className="h-3.5 w-3.5" />
               Live
@@ -97,7 +97,7 @@ export function ProjectCard({ project, variant }: ProjectCardProps) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex items-center gap-1.5 text-xs text-[#1a1a1a]/60 ${styles.linkHover} transition-colors`}
+              className={`inline-flex items-center gap-1.5 text-xs text-foreground/60 ${styles.linkHover} transition-colors`}
             >
               <Github className="h-3.5 w-3.5" />
               Code

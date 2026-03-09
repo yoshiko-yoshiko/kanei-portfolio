@@ -32,17 +32,17 @@ function SkillBar({ skill, isVisible, delay }: { skill: Skill; isVisible: boolea
       <div className="flex items-center justify-between text-sm">
         <div className="flex items-center gap-2">
           {IconComponent && (
-            <IconComponent className="w-4 h-4 text-[#10b981]" />
+            <IconComponent className="w-4 h-4 text-primary" />
           )}
-          <span className="text-[#1a1a1a] font-medium">{skill.name}</span>
+          <span className="text-foreground font-medium">{skill.name}</span>
         </div>
-        <span className="text-[#1a1a1a]/40 text-xs">
+        <span className="text-foreground/40 text-xs">
           {skill.yearsOfExperience}y
         </span>
       </div>
-      <div className="w-full bg-[#1a1a1a]/5 rounded-full h-2 overflow-hidden">
+      <div className="w-full bg-foreground/5 rounded-full h-2 overflow-hidden">
         <div
-          className="h-2 bg-gradient-to-r from-[#10b981] to-[#34d399] rounded-full transition-all duration-700 ease-out"
+          className="h-2 bg-gradient-to-r from-primary to-primary-light rounded-full transition-all duration-700 ease-out"
           style={{
             width: isVisible ? `${percentage}%` : '0%',
             transitionDelay: `${delay + 100}ms`
@@ -86,8 +86,8 @@ function DotIndicator({
           className={`
             w-2.5 h-2.5 rounded-full transition-all duration-300
             ${index === current
-              ? 'bg-[#10b981] scale-125'
-              : 'bg-[#1a1a1a]/20 hover:bg-[#10b981]/50'
+              ? 'bg-primary scale-125'
+              : 'bg-foreground/20 hover:bg-primary/50'
             }
           `}
           aria-label={`Go to skill category ${index + 1}`}
@@ -267,18 +267,18 @@ export function SkillsCarousel() {
         {/* ナビゲーションボタン（デスクトップ） */}
         <button
           onClick={(e) => { e.stopPropagation(); goToPrev(); }}
-          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 z-10 p-2 rounded-full bg-white shadow-lg border border-[#1a1a1a]/10 hover:border-[#10b981] hover:bg-[#10b981]/5 transition-all opacity-70 hover:opacity-100 hidden sm:flex"
+          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 z-10 p-2 rounded-full bg-white shadow-lg border border-foreground/10 hover:border-primary hover:bg-primary/5 transition-all opacity-70 hover:opacity-100 hidden sm:flex"
           aria-label="Previous category"
         >
-          <ChevronLeft className="w-5 h-5 text-[#1a1a1a]/60" />
+          <ChevronLeft className="w-5 h-5 text-foreground/60" />
         </button>
 
         <button
           onClick={(e) => { e.stopPropagation(); goToNext(); }}
-          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 z-10 p-2 rounded-full bg-white shadow-lg border border-[#1a1a1a]/10 hover:border-[#10b981] hover:bg-[#10b981]/5 transition-all opacity-70 hover:opacity-100 hidden sm:flex"
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 z-10 p-2 rounded-full bg-white shadow-lg border border-foreground/10 hover:border-primary hover:bg-primary/5 transition-all opacity-70 hover:opacity-100 hidden sm:flex"
           aria-label="Next category"
         >
-          <ChevronRight className="w-5 h-5 text-[#1a1a1a]/60" />
+          <ChevronRight className="w-5 h-5 text-foreground/60" />
         </button>
 
         {/* 初回スワイプヒントオーバーレイ */}
@@ -289,7 +289,7 @@ export function SkillsCarousel() {
               animation: 'fadeIn 0.5s ease-out'
             }}
           >
-            <div className="bg-[#1a1a1a]/80 backdrop-blur-sm text-white px-6 py-4 rounded-2xl flex items-center gap-4 shadow-xl">
+            <div className="bg-foreground/80 backdrop-blur-sm text-white px-6 py-4 rounded-2xl flex items-center gap-4 shadow-xl">
               <div className="animate-swipe-hint">
                 <ChevronLeft className="w-6 h-6" />
               </div>
@@ -315,8 +315,8 @@ export function SkillsCarousel() {
           {/* スキルカード */}
           <div
             className={`
-              p-6 sm:p-8 rounded-2xl border-2 border-[#1a1a1a]/10
-              bg-gradient-to-br from-white to-[#10b981]/5
+              p-6 sm:p-8 rounded-2xl border-2 border-foreground/10
+              bg-gradient-to-br from-white to-primary/5
               transition-all duration-300
               ${isVisible ? 'opacity-100' : 'opacity-0'}
             `}
@@ -324,10 +324,10 @@ export function SkillsCarousel() {
             {/* カテゴリヘッダー */}
             <div className="text-center mb-6">
               <CategoryIcon icon={currentCategory.icon} isActive={isVisible} />
-              <h2 className="text-xl sm:text-2xl font-bold text-[#1a1a1a] mt-3">
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground mt-3">
                 {currentCategory.name}
               </h2>
-              <p className="text-sm text-[#1a1a1a]/50 mt-1">
+              <p className="text-sm text-foreground/50 mt-1">
                 {currentCategory.skills.length} skills
               </p>
             </div>
@@ -345,11 +345,11 @@ export function SkillsCarousel() {
             </div>
 
             {/* カテゴリ進捗 */}
-            <div className="mt-6 pt-4 border-t border-[#1a1a1a]/5">
-              <div className="flex justify-between items-center text-xs text-[#1a1a1a]/40">
+            <div className="mt-6 pt-4 border-t border-foreground/5">
+              <div className="flex justify-between items-center text-xs text-foreground/40">
                 <span>Category {currentIndex + 1} of {categories.length}</span>
                 <span className="flex items-center gap-1">
-                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#10b981] animate-pulse" />
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                   Swipe to explore
                 </span>
               </div>
@@ -359,7 +359,7 @@ export function SkillsCarousel() {
 
         {/* モバイルスワイプヒント */}
         <div className="flex justify-center mt-4 sm:hidden">
-          <div className="flex items-center gap-2 text-xs text-[#1a1a1a]/40">
+          <div className="flex items-center gap-2 text-xs text-foreground/40">
             <ChevronLeft className="w-4 h-4" />
             <span>Swipe</span>
             <ChevronRight className="w-4 h-4" />
@@ -385,8 +385,8 @@ export function SkillsCarousel() {
                 flex items-center gap-2 px-3 py-2 rounded-full text-sm whitespace-nowrap
                 transition-all duration-300
                 ${index === currentIndex
-                  ? 'bg-[#10b981] text-white shadow-md'
-                  : 'bg-[#1a1a1a]/5 text-[#1a1a1a]/60 hover:bg-[#10b981]/10 hover:text-[#10b981]'
+                  ? 'bg-primary text-white shadow-md'
+                  : 'bg-foreground/5 text-foreground/60 hover:bg-primary/10 hover:text-primary'
                 }
               `}
             >
