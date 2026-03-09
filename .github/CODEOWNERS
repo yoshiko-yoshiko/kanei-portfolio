@@ -1,0 +1,9 @@
+# Default owner
+* @yoshiko-yoshiko
+
+# CI/CD
+.github/ @yoshiko-yoshiko
+
+# Config files
+*.config.* @yoshiko-yoshiko
+tsconfig*.json @yoshiko-yoshiko
