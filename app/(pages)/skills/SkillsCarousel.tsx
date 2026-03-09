@@ -3,117 +3,29 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { SKILLS } from './skills-data';
-import type { SkillCategory, Skill } from '@/app/types';
+import { SkillBar } from './components/SkillBar';
+import { CategoryIcon } from './components/CategoryIcon';
+import { DotIndicator } from './components/DotIndicator';
+import { useCarouselGesture } from './hooks/useCarouselGesture';
+import type { SkillCategory } from '@/app/types';
 
-// カルーセル設定
 const CAROUSEL_CONFIG = {
   MIN_SWIPE_DISTANCE: 50,
   SWIPE_HINT_TIMEOUT_MS: 5000,
   TRANSITION_MS: 150,
   SKILL_DELAY_MS: 80,
   DRAG_RESISTANCE: 0.3,
-  MAX_SKILL_LEVEL: 5,
 } as const;
 
-// スキルバーコンポーネント（表示時にアニメーション）
-function SkillBar({ skill, isVisible, delay }: { skill: Skill; isVisible: boolean; delay: number }) {
-  const percentage = (skill.level / CAROUSEL_CONFIG.MAX_SKILL_LEVEL) * 100;
-  const IconComponent = skill.icon;
-
-  return (
-    <div
-      className="space-y-1.5 transform transition-all duration-500"
-      style={{
-        transitionDelay: `${delay}ms`,
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translateY(0)' : 'translateY(20px)'
-      }}
-    >
-      <div className="flex items-center justify-between text-sm">
-        <div className="flex items-center gap-2">
-          {IconComponent && (
-            <IconComponent className="w-4 h-4 text-primary" />
-          )}
-          <span className="text-foreground font-medium">{skill.name}</span>
-        </div>
-        <span className="text-foreground/40 text-xs">
-          {skill.yearsOfExperience}y
-        </span>
-      </div>
-      <div className="w-full bg-foreground/5 rounded-full h-2 overflow-hidden">
-        <div
-          className="h-2 bg-gradient-to-r from-primary to-primary-light rounded-full transition-all duration-700 ease-out"
-          style={{
-            width: isVisible ? `${percentage}%` : '0%',
-            transitionDelay: `${delay + 100}ms`
-          }}
-        />
-      </div>
-    </div>
-  );
-}
-
-// カテゴリアイコンコンポーネント（弾むアニメーション）
-function CategoryIcon({ icon, isActive }: { icon: string; isActive: boolean }) {
-  return (
-    <span
-      className={`
-        text-4xl sm:text-5xl inline-block transition-transform duration-300
-        ${isActive ? 'animate-bounce-subtle' : ''}
-      `}
-    >
-      {icon}
-    </span>
-  );
-}
-
-// ドットインジケーター
-function DotIndicator({
-  total,
-  current,
-  onDotClick
-}: {
-  total: number;
-  current: number;
-  onDotClick: (index: number) => void;
-}) {
-  return (
-    <div className="flex justify-center gap-2 mt-6">
-      {Array.from({ length: total }).map((_, index) => (
-        <button
-          key={index}
-          onClick={() => onDotClick(index)}
-          className={`
-            w-2.5 h-2.5 rounded-full transition-all duration-300
-            ${index === current
-              ? 'bg-primary scale-125'
-              : 'bg-foreground/20 hover:bg-primary/50'
-            }
-          `}
-          aria-label={`Go to skill category ${index + 1}`}
-        />
-      ))}
-    </div>
-  );
-}
-
-// メインカルーセルコンポーネント
 export function SkillsCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
-  const [touchStart, setTouchStart] = useState<number | null>(null);
-  const [touchEnd, setTouchEnd] = useState<number | null>(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [dragOffset, setDragOffset] = useState(0);
   const [showSwipeHint, setShowSwipeHint] = useState(true);
   const [hasInteracted, setHasInteracted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const minSwipeDistance = CAROUSEL_CONFIG.MIN_SWIPE_DISTANCE;
-
   const categories: SkillCategory[] = SKILLS;
 
-  // インタラクション時にヒントを非表示
   const markInteracted = useCallback(() => {
     if (!hasInteracted) {
       setHasInteracted(true);
@@ -121,7 +33,6 @@ export function SkillsCarousel() {
     }
   }, [hasInteracted]);
 
-  // 次のカテゴリへ
   const goToNext = useCallback(() => {
     markInteracted();
     setIsVisible(false);
@@ -131,7 +42,6 @@ export function SkillsCarousel() {
     }, CAROUSEL_CONFIG.TRANSITION_MS);
   }, [categories.length, markInteracted]);
 
-  // 前のカテゴリへ
   const goToPrev = useCallback(() => {
     markInteracted();
     setIsVisible(false);
@@ -141,7 +51,6 @@ export function SkillsCarousel() {
     }, CAROUSEL_CONFIG.TRANSITION_MS);
   }, [categories.length, markInteracted]);
 
-  // 特定のインデックスへ
   const goToIndex = useCallback((index: number) => {
     if (index === currentIndex) return;
     markInteracted();
@@ -160,93 +69,21 @@ export function SkillsCarousel() {
     return () => clearTimeout(timer);
   }, []);
 
-  // タッチイベントハンドラ
-  const onTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientX);
-    setIsDragging(true);
-  };
-
-  const onTouchMove = (e: React.TouchEvent) => {
-    if (!touchStart) return;
-    const currentTouch = e.targetTouches[0].clientX;
-    setTouchEnd(currentTouch);
-    setDragOffset(currentTouch - touchStart);
-  };
-
-  const onTouchEnd = () => {
-    setIsDragging(false);
-    setDragOffset(0);
-
-    if (!touchStart || !touchEnd) return;
-
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
-
-    if (isLeftSwipe) {
-      goToNext();
-    } else if (isRightSwipe) {
-      goToPrev();
-    }
-
-    setTouchStart(null);
-    setTouchEnd(null);
-  };
-
-  // マウスドラッグハンドラ（デスクトップ用）
-  const onMouseDown = (e: React.MouseEvent) => {
-    setTouchStart(e.clientX);
-    setIsDragging(true);
-  };
-
-  const onMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || touchStart === null) return;
-    setDragOffset(e.clientX - touchStart);
-  };
-
-  const onMouseUp = (e: React.MouseEvent) => {
-    if (!isDragging || touchStart === null) {
-      setIsDragging(false);
-      return;
-    }
-
-    const distance = touchStart - e.clientX;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
-
-    if (isLeftSwipe) {
-      goToNext();
-    } else if (isRightSwipe) {
-      goToPrev();
-    }
-
-    setIsDragging(false);
-    setDragOffset(0);
-    setTouchStart(null);
-  };
-
-  const onMouseLeave = () => {
-    if (isDragging) {
-      setIsDragging(false);
-      setDragOffset(0);
-      setTouchStart(null);
-    }
-  };
-
   // キーボードナビゲーション
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowRight') {
-        goToNext();
-      } else if (e.key === 'ArrowLeft') {
-        goToPrev();
-      }
+      if (e.key === 'ArrowRight') goToNext();
+      else if (e.key === 'ArrowLeft') goToPrev();
     };
-
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [goToNext, goToPrev]);
+
+  const { isDragging, dragOffset, handlers } = useCarouselGesture({
+    minSwipeDistance: CAROUSEL_CONFIG.MIN_SWIPE_DISTANCE,
+    onSwipeLeft: goToNext,
+    onSwipeRight: goToPrev,
+  });
 
   const currentCategory = categories[currentIndex];
 
@@ -256,13 +93,7 @@ export function SkillsCarousel() {
       <div
         ref={containerRef}
         className="relative select-none cursor-grab active:cursor-grabbing"
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEnd}
-        onMouseDown={onMouseDown}
-        onMouseMove={onMouseMove}
-        onMouseUp={onMouseUp}
-        onMouseLeave={onMouseLeave}
+        {...handlers}
       >
         {/* ナビゲーションボタン（デスクトップ） */}
         <button
@@ -285,9 +116,7 @@ export function SkillsCarousel() {
         {showSwipeHint && !hasInteracted && (
           <div
             className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none"
-            style={{
-              animation: 'fadeIn 0.5s ease-out'
-            }}
+            style={{ animation: 'fadeIn 0.5s ease-out' }}
           >
             <div className="bg-foreground/80 backdrop-blur-sm text-white px-6 py-4 rounded-2xl flex items-center gap-4 shadow-xl">
               <div className="animate-swipe-hint">
@@ -312,7 +141,6 @@ export function SkillsCarousel() {
             transition: isDragging ? 'none' : 'transform 0.3s ease-out'
           }}
         >
-          {/* スキルカード */}
           <div
             className={`
               p-6 sm:p-8 rounded-2xl border-2 border-foreground/10

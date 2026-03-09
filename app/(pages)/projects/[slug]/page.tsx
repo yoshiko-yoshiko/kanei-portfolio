@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, ArrowRight, ExternalLink, Github } from 'lucide-react';
-import { SITE_CONFIG } from '../../../lib/constants';
+import { SITE_CONFIG, NAV_CARD_HOVER } from '../../../lib/constants';
 import { PROJECTS } from '../projects-data';
 import { generateBreadcrumbJsonLd } from '../../../lib/utils';
 import type { Project } from '../../../types';
@@ -103,7 +103,7 @@ export default async function ProjectPage({ params }: Props) {
           </div>
         ) : (
           <div className="w-full max-w-5xl mx-auto px-6 pt-4">
-            <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden bg-gradient-to-br from-[#10b981] via-[#059669] to-[#047857]">
+            <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden bg-gradient-to-br from-primary via-primary-dark to-primary-darker">
               <div className="absolute inset-0 flex items-center justify-center">
                 <span className="text-white/20 text-[120px] sm:text-[180px] font-bold leading-none select-none">
                   {project.title.charAt(0)}
@@ -119,15 +119,15 @@ export default async function ProjectPage({ params }: Props) {
         <div className="max-w-4xl mx-auto">
           {/* Meta Info + Description */}
           <div className="flex flex-col md:flex-row gap-8 mt-16 mb-12 md:items-start">
-            <div className="flex flex-col gap-3 text-sm text-[#1a1a1a]/70 md:w-1/3">
-              <span><span className="text-[#1a1a1a]/40 mr-2">Title</span>{project.title}</span>
-              <span><span className="text-[#1a1a1a]/40 mr-2">Role</span>{project.role}</span>
-              <span><span className="text-[#1a1a1a]/40 mr-2">Duration</span>{project.duration}</span>
-              <span><span className="text-[#1a1a1a]/40 mr-2">Team</span>{project.teamSize} members</span>
-              <span><span className="text-[#1a1a1a]/40 mr-2">Category</span><span className="capitalize">{project.category}</span></span>
+            <div className="flex flex-col gap-3 text-sm text-foreground/70 md:w-1/3">
+              <span><span className="text-foreground/40 mr-2">Title</span>{project.title}</span>
+              <span><span className="text-foreground/40 mr-2">Role</span>{project.role}</span>
+              <span><span className="text-foreground/40 mr-2">Duration</span>{project.duration}</span>
+              <span><span className="text-foreground/40 mr-2">Team</span>{project.teamSize} members</span>
+              <span><span className="text-foreground/40 mr-2">Category</span><span className="capitalize">{project.category}</span></span>
             </div>
             <div className="md:w-2/3">
-              <p className="text-[#1a1a1a]/70 leading-relaxed text-base">
+              <p className="text-foreground/70 leading-relaxed text-base">
                 {project.longDescription}
               </p>
             </div>
@@ -135,14 +135,14 @@ export default async function ProjectPage({ params }: Props) {
 
           {/* Technologies */}
           <div className="mb-12">
-            <h2 className="text-sm font-semibold text-[#1a1a1a]/40 uppercase tracking-wider mb-4">Technologies</h2>
+            <h2 className="text-sm font-semibold text-foreground/40 uppercase tracking-wider mb-4">Technologies</h2>
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech) => {
                 const Icon = typeof tech.icon !== 'string' ? tech.icon : null;
                 return (
                   <span
                     key={tech.name}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm text-[#1a1a1a]/70 bg-[#1a1a1a]/5 rounded-lg hover:bg-[#10b981]/10 hover:text-[#10b981] transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm text-foreground/70 bg-foreground/5 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors"
                   >
                     {Icon ? <Icon className="h-3.5 w-3.5" /> : <span>{tech.icon as string}</span>}
                     {tech.name}
@@ -155,10 +155,10 @@ export default async function ProjectPage({ params }: Props) {
           {/* Challenges / Solutions / Results */}
           <div className="mb-12 space-y-10">
             <div>
-              <h2 className="text-sm font-semibold text-[#1a1a1a]/40 uppercase tracking-wider mb-4">Challenges</h2>
+              <h2 className="text-sm font-semibold text-foreground/40 uppercase tracking-wider mb-4">Challenges</h2>
               <ul className="space-y-3">
                 {project.challenges.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-[#1a1a1a]/70">
+                  <li key={i} className="flex items-start gap-3 text-sm text-foreground/70">
                     <span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2 flex-shrink-0" />
                     {item}
                   </li>
@@ -167,10 +167,10 @@ export default async function ProjectPage({ params }: Props) {
             </div>
 
             <div>
-              <h2 className="text-sm font-semibold text-[#1a1a1a]/40 uppercase tracking-wider mb-4">Solutions</h2>
+              <h2 className="text-sm font-semibold text-foreground/40 uppercase tracking-wider mb-4">Solutions</h2>
               <ul className="space-y-3">
                 {project.solutions.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-[#1a1a1a]/70">
+                  <li key={i} className="flex items-start gap-3 text-sm text-foreground/70">
                     <span className="w-1.5 h-1.5 rounded-full bg-blue-400 mt-2 flex-shrink-0" />
                     {item}
                   </li>
@@ -179,11 +179,11 @@ export default async function ProjectPage({ params }: Props) {
             </div>
 
             <div>
-              <h2 className="text-sm font-semibold text-[#1a1a1a]/40 uppercase tracking-wider mb-4">Results</h2>
+              <h2 className="text-sm font-semibold text-foreground/40 uppercase tracking-wider mb-4">Results</h2>
               <ul className="space-y-3">
                 {project.results.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-[#1a1a1a]/70">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#10b981] mt-2 flex-shrink-0" />
+                  <li key={i} className="flex items-start gap-3 text-sm text-foreground/70">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                     {item}
                   </li>
                 ))}
@@ -204,7 +204,7 @@ export default async function ProjectPage({ params }: Props) {
                       className="object-cover"
                     />
                     {image.caption && (
-                      <p className="mt-2 text-xs text-[#1a1a1a]/40 text-center">{image.caption}</p>
+                      <p className="mt-2 text-xs text-foreground/40 text-center">{image.caption}</p>
                     )}
                   </div>
                 ))}
@@ -220,7 +220,7 @@ export default async function ProjectPage({ params }: Props) {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-[#10b981] rounded-lg hover:bg-[#059669] transition-colors"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-primary rounded-lg hover:bg-primary-dark transition-colors"
                 >
                   <ExternalLink className="h-4 w-4" />
                   Live Demo
@@ -231,7 +231,7 @@ export default async function ProjectPage({ params }: Props) {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-[#1a1a1a] border border-[#1a1a1a]/20 rounded-lg hover:border-[#10b981] hover:text-[#10b981] transition-colors"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-foreground border border-foreground/20 rounded-lg hover:border-primary hover:text-primary transition-colors"
                 >
                   <Github className="h-4 w-4" />
                   Source Code
@@ -241,17 +241,17 @@ export default async function ProjectPage({ params }: Props) {
           )}
 
           {/* Prev / Next Project Navigation */}
-          <div className="pt-10 border-t border-[#1a1a1a]/10">
+          <div className="pt-10 border-t border-foreground/10">
             <div className="grid grid-cols-2 gap-4">
               {/* Previous */}
               <Link
                 href={`/projects/${prevProject.id}`}
-                className="group flex items-center gap-4 p-5 rounded-xl border border-[#1a1a1a]/10 hover:border-[#10b981]/30 transition-colors"
+                className={`group flex items-center gap-4 p-5 rounded-xl ${NAV_CARD_HOVER}`}
               >
-                <ArrowLeft className="h-5 w-5 text-[#1a1a1a]/30 group-hover:text-[#10b981] group-hover:-translate-x-1 transition-all flex-shrink-0" />
+                <ArrowLeft className="h-5 w-5 text-foreground/30 group-hover:text-primary group-hover:-translate-x-1 transition-all flex-shrink-0" />
                 <div className="min-w-0">
-                  <span className="text-xs text-[#1a1a1a]/40">Prev</span>
-                  <h4 className="font-medium text-[#1a1a1a] group-hover:text-[#10b981] transition-colors truncate">
+                  <span className="text-xs text-foreground/40">Prev</span>
+                  <h4 className="font-medium text-foreground group-hover:text-primary transition-colors truncate">
                     {prevProject.title}
                   </h4>
                 </div>
@@ -260,15 +260,15 @@ export default async function ProjectPage({ params }: Props) {
               {/* Next */}
               <Link
                 href={`/projects/${nextProject.id}`}
-                className="group flex items-center justify-end gap-4 p-5 rounded-xl border border-[#1a1a1a]/10 hover:border-[#10b981]/30 transition-colors text-right"
+                className={`group flex items-center justify-end gap-4 p-5 rounded-xl ${NAV_CARD_HOVER} text-right`}
               >
                 <div className="min-w-0">
-                  <span className="text-xs text-[#1a1a1a]/40">Next</span>
-                  <h4 className="font-medium text-[#1a1a1a] group-hover:text-[#10b981] transition-colors truncate">
+                  <span className="text-xs text-foreground/40">Next</span>
+                  <h4 className="font-medium text-foreground group-hover:text-primary transition-colors truncate">
                     {nextProject.title}
                   </h4>
                 </div>
-                <ArrowRight className="h-5 w-5 text-[#1a1a1a]/30 group-hover:text-[#10b981] group-hover:translate-x-1 transition-all flex-shrink-0" />
+                <ArrowRight className="h-5 w-5 text-foreground/30 group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0" />
               </Link>
             </div>
           </div>

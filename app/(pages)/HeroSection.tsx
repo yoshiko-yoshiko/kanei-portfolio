@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Github, Linkedin, FolderOpen, Code2, User, Mail } from 'lucide-react';
 import { ZennIcon } from '../components/icons/ZennIcon';
+import { SITE_CONFIG, CARD_HOVER } from '../lib/constants';
 import profileImg from '@/app/_assets/images/profile.jpg';
 
 // 内部ページリンク
@@ -31,7 +32,7 @@ export function HeroSection() {
           <div className="w-[100px] h-[100px] mx-auto mb-5 rounded-full overflow-hidden border-4 border-primary/20">
             <Image
               src={profileImg}
-              alt="Kanei Nakashima"
+              alt={SITE_CONFIG.author}
               width={100}
               height={100}
               className="w-full h-full object-cover"
@@ -41,7 +42,7 @@ export function HeroSection() {
 
           {/* Name */}
           <h1 className="text-2xl font-bold text-foreground mb-1">
-            Kanei Nakashima
+            {SITE_CONFIG.author}
           </h1>
 
           {/* Bio */}
@@ -58,7 +59,7 @@ export function HeroSection() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="flex items-center gap-3 p-4 rounded-lg border border-foreground/10 hover:border-primary hover:bg-primary/5 transition-colors group"
+                className={`flex items-center gap-3 p-4 rounded-lg ${CARD_HOVER} group`}
               >
                 <IconComponent className="h-5 w-5 text-foreground/50 group-hover:text-primary transition-colors" />
                 <div className="text-left">
@@ -80,7 +81,7 @@ export function HeroSection() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-w-[44px] min-h-[44px] p-3 rounded-full border border-foreground/10 hover:border-primary hover:bg-primary/5 transition-colors group flex items-center justify-center"
+                className={`min-w-[44px] min-h-[44px] p-3 rounded-full ${CARD_HOVER} group flex items-center justify-center`}
                 aria-label={link.name}
               >
                 <IconComponent className="h-5 w-5 text-foreground/50 group-hover:text-primary transition-colors" />
@@ -91,7 +92,7 @@ export function HeroSection() {
 
         {/* Footer */}
         <p className="text-center text-foreground/30 text-xs mt-10">
-          © 2026 Kanei Nakashima
+          © 2026 {SITE_CONFIG.author}
         </p>
       </div>
     </section>
