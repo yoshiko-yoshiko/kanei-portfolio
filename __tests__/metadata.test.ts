@@ -5,7 +5,7 @@ import { SITE_CONFIG } from '@/app/lib/constants/site';
 describe('siteMetadata', () => {
   it('should have a metadataBase URL', () => {
     expect(siteMetadata.metadataBase).toBeInstanceOf(URL);
-    expect(siteMetadata.metadataBase?.href).toContain(SITE_CONFIG.url);
+    expect((siteMetadata.metadataBase as URL).href).toContain(SITE_CONFIG.url);
   });
 
   it('should have title with default and template', () => {
