@@ -28,7 +28,7 @@ const CONTACT_LINKS = [
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
@@ -40,8 +40,8 @@ export default function ContactPage() {
         <div className="max-w-[600px] mx-auto">
           {/* Title */}
           <div className="text-center mb-12">
-            <h1 className="text-3xl font-bold text-foreground mb-2">Contact</h1>
-            <p className="text-foreground/60">Get in touch with me</p>
+            <h1 className="text-3xl font-bold font-heading text-foreground mb-2">Contact</h1>
+            <p className="text-text-secondary">Get in touch with me</p>
           </div>
 
           {/* Contact Links */}
@@ -56,12 +56,12 @@ export default function ContactPage() {
                   rel={link.url.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
                   className={`flex items-center gap-4 p-4 rounded-lg ${CARD_HOVER} group`}
                 >
-                  <div className="w-10 h-10 rounded-full bg-foreground/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                    <IconComponent className="h-5 w-5 text-foreground/50 group-hover:text-primary transition-colors" />
+                  <div className="w-10 h-10 rounded-full bg-surface-hover flex items-center justify-center group-hover:bg-primary/5 transition-colors">
+                    <IconComponent className="h-5 w-5 text-text-muted group-hover:text-primary transition-colors" />
                   </div>
                   <div>
                     <div className="font-medium text-foreground">{link.name}</div>
-                    <div className="text-sm text-foreground/50">{link.description}</div>
+                    <div className="text-sm text-text-secondary">{link.description}</div>
                   </div>
                 </a>
               );
@@ -69,8 +69,8 @@ export default function ContactPage() {
           </div>
 
           {/* Message */}
-          <div className="mt-12 p-6 rounded-xl bg-primary/5 text-center">
-            <p className="text-sm text-foreground/70 leading-relaxed">
+          <div className="mt-12 p-6 rounded-xl bg-surface border border-border text-center">
+            <p className="text-sm text-text-secondary leading-relaxed">
               プロジェクトのご相談、転職のお話、技術的な質問など、
               <br />
               お気軽にご連絡ください。
