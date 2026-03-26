@@ -80,7 +80,7 @@ export default async function ProjectPage({ params }: Props) {
   const nextProject = currentIndex < PROJECTS.length - 1 ? PROJECTS[currentIndex + 1] : PROJECTS[0];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

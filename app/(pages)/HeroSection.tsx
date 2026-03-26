@@ -24,12 +24,12 @@ const EXTERNAL_LINKS = [
 
 export function HeroSection() {
   return (
-    <section className="fixed inset-0 z-10 flex items-center justify-center bg-white px-4 sm:px-6">
+    <section className="fixed inset-0 z-10 flex items-center justify-center px-4 sm:px-6">
       <div className="w-full max-w-[600px]">
         {/* Profile Section */}
         <div className="text-center mb-10">
           {/* Profile Image */}
-          <div className="w-[100px] h-[100px] mx-auto mb-5 rounded-full overflow-hidden border-4 border-primary/20">
+          <div className="w-[100px] h-[100px] mx-auto mb-5 rounded-full overflow-hidden border-4 border-[#2d7a5f]/20">
             <Image
               src={profileImg}
               alt={SITE_CONFIG.author}
@@ -41,12 +41,12 @@ export function HeroSection() {
           </div>
 
           {/* Name */}
-          <h1 className="text-2xl font-bold text-foreground mb-1">
+          <h1 className="text-2xl font-bold font-heading mb-1 text-foreground">
             {SITE_CONFIG.author}
           </h1>
 
           {/* Bio */}
-          <p className="text-foreground/60 text-sm">
+          <p className="text-text-muted text-sm">
             Engineer
           </p>
         </div>
@@ -61,10 +61,10 @@ export function HeroSection() {
                 href={link.href}
                 className={`flex items-center gap-3 p-4 rounded-lg ${CARD_HOVER} group`}
               >
-                <IconComponent className="h-5 w-5 text-foreground/50 group-hover:text-primary transition-colors" />
+                <IconComponent className="h-5 w-5 text-text-muted group-hover:text-primary transition-colors" />
                 <div className="text-left">
                   <div className="text-sm font-medium text-foreground">{link.name}</div>
-                  <div className="text-xs text-foreground/40">{link.description}</div>
+                  <div className="text-xs text-text-secondary">{link.description}</div>
                 </div>
               </Link>
             );
@@ -84,14 +84,14 @@ export function HeroSection() {
                 className={`min-w-[44px] min-h-[44px] p-3 rounded-full ${CARD_HOVER} group flex items-center justify-center`}
                 aria-label={link.name}
               >
-                <IconComponent className="h-5 w-5 text-foreground/50 group-hover:text-primary transition-colors" />
+                <IconComponent className="h-5 w-5 text-text-muted hover:text-primary transition-colors" />
               </a>
             );
           })}
         </div>
 
         {/* Footer */}
-        <p className="text-center text-foreground/30 text-xs mt-10">
+        <p className="text-center text-text-secondary/50 text-xs mt-10">
           © 2026 {SITE_CONFIG.author}
         </p>
       </div>

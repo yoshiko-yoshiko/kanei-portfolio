@@ -6,7 +6,7 @@ import { OUTLINE_HOVER } from './lib/constants';
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center px-6">
+    <div className="min-h-screen flex items-center justify-center px-6">
       <div className="text-center max-w-md">
         {/* 404 Number */}
         <div className="relative mb-8">
