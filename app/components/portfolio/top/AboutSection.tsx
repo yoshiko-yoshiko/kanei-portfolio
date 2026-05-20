@@ -1,8 +1,5 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import profileImg from '@/app/_assets/images/profile.jpg';
 
-// Inline BilingualText — swap for: import { BilingualText } from '@/app/components/ui/BilingualText'
 function BilingualText({ jp, en }: { jp: string; en: string }) {
   return (
     <div className="space-y-1">
@@ -12,7 +9,6 @@ function BilingualText({ jp, en }: { jp: string; en: string }) {
   );
 }
 
-// Inline ExploreLink — swap for: import { ExploreLink } from '@/app/components/ui/ExploreLink'
 function ExploreLink({ href, jp, en }: { href: string; jp: string; en: string }) {
   return (
     <Link
@@ -36,19 +32,15 @@ const SOCIAL_LINKS = [
 export function AboutSection() {
   return (
     <section className="border-b border-border pb-8">
-      <p className="text-xs text-muted font-mono uppercase tracking-widest mb-4">About me</p>
+      <p className="text-xs text-muted font-mono mb-4">About me</p>
 
       <div className="flex items-start gap-4 mb-4">
-        <Image
-          src={profileImg}
-          alt="Kanei Nakashima"
-          width={48}
-          height={48}
-          className="rounded-full object-cover shrink-0"
-        />
+        <div className="w-12 h-12 rounded-full bg-[#E8E5DD] flex items-center justify-center flex-shrink-0">
+          <span className="font-mono text-sm text-[#8C8678]">kn</span>
+        </div>
         <div>
           <p className="text-lg font-semibold text-text leading-tight">Kanei Nakashima</p>
-          <p className="text-sm text-muted mt-0.5">中嶋 嘉永 · Fullstack Engineer · Tokyo</p>
+          <p className="text-sm text-muted mt-0.5">中島 寛瑛 · Fullstack Engineer · Tokyo</p>
           <div className="flex flex-wrap items-center mt-1.5">
             {SOCIAL_LINKS.map((link, i) => (
               <span key={link.label} className="flex items-center">
@@ -72,8 +64,8 @@ export function AboutSection() {
 
       <div className="mb-4">
         <BilingualText
-          jp="React と NestJS で Web アプリを作っているフルスタックエンジニアです。"
-          en="A fullstack engineer building web apps with React and NestJS."
+          jp="React と NestJS で Web アプリを作っているフルスタックエンジニアです。最近は AI でどこまで開発を加速できるかに興味があり、MCP サーバーや AI エージェント並列開発に取り組んでいます。"
+          en="A fullstack engineer building web apps with React and NestJS. Lately curious about how far AI can accelerate development — tinkering with MCP servers and parallel agent workflows."
         />
       </div>
 
