@@ -6,7 +6,7 @@ export function PhilosophySection() {
       <div className="flex items-center gap-4 text-xs text-muted font-mono mb-6">
         <span>/</span>
         <span>02</span>
-        <span>PHILOSOPHY</span>
+        <span>Philosophy</span>
       </div>
       <div className="grid md:grid-cols-2 gap-0 border-t border-border">
         {PHILOSOPHY.map((item, i) => (

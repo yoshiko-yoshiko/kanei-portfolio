@@ -6,7 +6,7 @@ export function TimelineSection() {
       <div className="flex items-center gap-4 text-xs text-muted font-mono mb-6">
         <span>/</span>
         <span>01</span>
-        <span>TIMELINE</span>
+        <span>Timeline</span>
       </div>
       <div className="border-t border-border">
         {TIMELINE.map((entry) => (

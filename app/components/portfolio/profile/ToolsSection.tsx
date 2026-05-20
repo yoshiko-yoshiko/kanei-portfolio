@@ -6,7 +6,7 @@ export function ToolsSection() {
       <div className="flex items-center gap-4 text-xs text-muted font-mono mb-6">
         <span>/</span>
         <span>03</span>
-        <span>TOOLS I REACH FOR</span>
+        <span>Tools I reach for</span>
       </div>
       <div className="border-t border-border">
         {TOOLS.map((cat) => (

@@ -11,7 +11,7 @@ export default function ProfilePage() {
       <PageHeader pageTitle="Profile" />
       <div className="max-w-[720px] mx-auto px-6 md:px-12 space-y-16">
         <section>
-          <p className="text-xs text-muted font-mono mb-4">PROFILE · この人について</p>
+          <p className="text-xs text-muted font-mono mb-4">Profile · この人について</p>
           <h1 className="text-4xl md:text-5xl font-jp leading-tight">
             つくる時間の中身を、<br />もう少し。
           </h1>

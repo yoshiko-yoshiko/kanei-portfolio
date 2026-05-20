@@ -6,7 +6,7 @@ export function InfluencesSection() {
       <div className="flex items-center gap-4 text-xs text-muted font-mono mb-6">
         <span>/</span>
         <span>04</span>
-        <span>INFLUENCES</span>
+        <span>Influences</span>
       </div>
       <div className="border-t border-border">
         {INFLUENCES.map((item) => (
