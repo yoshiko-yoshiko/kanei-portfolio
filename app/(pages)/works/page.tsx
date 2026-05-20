@@ -3,9 +3,10 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import { WORKS } from "@/app/(data)/works";
-import { PageHeader } from "@/app/components/portfolio/PageHeader";
-import { WorksFilter } from "@/app/components/portfolio/works/WorksFilter";
-import { WorksTimeline } from "@/app/components/portfolio/works/WorksTimeline";
+import { PageHeader } from "@/app/components/layout/PageHeader";
+import { PageFooter } from "@/app/components/layout/PageFooter";
+import { WorksFilter } from "./_components/WorksFilter";
+import { WorksTimeline } from "./_components/WorksTimeline";
 
 export default function WorksPage() {
   const [selected, setSelected] = useState("all");
@@ -18,30 +19,30 @@ export default function WorksPage() {
   return (
     <main className="min-h-screen bg-bg text-text">
       <div className="max-w-[720px] mx-auto px-6 md:px-12">
-        <PageHeader pageTitle="Works" />
-        <div className="space-y-10 py-12">
+        <PageHeader pageTitle="Works" backLink="/" />
+        <div className="pt-[64px]">
           {/* Hero */}
-          <section className="space-y-4">
-            <p className="text-xs text-muted font-mono uppercase tracking-widest">
+          <section className="pb-[64px]">
+            <p className="text-[12px] text-muted font-mono tracking-[0.24px] mb-8">
               Works · 全アーカイブ
             </p>
-            <h1 className="text-5xl font-medium font-jp leading-tight">
+            <h1 className="text-[40px] md:text-[44px] font-medium font-jp leading-[1.3] tracking-tight mb-8">
               つくってきたものの
               <br />
               全部。
             </h1>
-            <div className="space-y-1">
-              <p className="text-sm text-muted font-jp leading-relaxed">
+            <div className="space-y-2">
+              <p className="text-[15px] text-text font-jp leading-relaxed">
                 主要 4 件のケーススタディに加えて、小さな試作・社内プログラム・登壇・記事など、これまでの取り組みを年表で並べています。
               </p>
-              <p className="text-sm text-muted font-jp">
-                ★ 印は詳しいケーススタディあり。
+              <p className="text-[14px] text-muted font-jp">
+                ★ 印は詳しいケーススタディがあります。
               </p>
             </div>
           </section>
 
           {/* Filter */}
-          <section>
+          <section className="pb-[64px]">
             <WorksFilter
               selected={selected}
               onChange={setSelected}
@@ -50,19 +51,19 @@ export default function WorksPage() {
           </section>
 
           {/* Timeline */}
-          <section>
+          <section className="pb-[88px]">
             <WorksTimeline entries={filtered} />
           </section>
 
           {/* Links */}
-          <section>
-            <p className="text-sm text-muted font-jp leading-relaxed">
+          <section className="pb-[40px]">
+            <p className="text-[14px] text-muted font-jp leading-relaxed">
               技術記事は{" "}
               <a
                 href="https://zenn.dev/aiueo700"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-text hover:text-accent underline underline-offset-2 transition-colors"
+                className="text-text hover:text-accent underline underline-offset-4 decoration-border hover:decoration-text transition-colors"
               >
                 Zenn @aiueo700
               </a>
@@ -71,7 +72,7 @@ export default function WorksPage() {
                 href="https://github.com/yoshiko-yoshiko"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-text hover:text-accent underline underline-offset-2 transition-colors"
+                className="text-text hover:text-accent underline underline-offset-4 decoration-border hover:decoration-text transition-colors"
               >
                 GitHub
               </a>
@@ -80,23 +81,17 @@ export default function WorksPage() {
           </section>
 
           {/* Back link */}
-          <section>
+          <section className="pb-[40px]">
             <Link
               href="/"
-              className="text-sm text-muted hover:text-text transition-colors"
+              className="text-[14px] text-text hover:text-accent transition-colors"
             >
-              ← もどる / Back to home
+              ← <span className="font-jp">もどる</span>{" "}
+              <span className="text-muted italic">/ Back to home</span>
             </Link>
           </section>
-
-          {/* Footer */}
-          <footer className="border-t border-border pt-4 flex items-center justify-between">
-            <span className="text-xs text-muted">© 2026 Kanei Nakashima</span>
-            <span className="text-xs text-muted font-mono">
-              /works · {WORKS.length} entries
-            </span>
-          </footer>
         </div>
+        <PageFooter rightText={`/works · ${WORKS.length} entries`} />
       </div>
     </main>
   );

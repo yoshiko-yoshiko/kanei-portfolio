@@ -6,22 +6,22 @@ export type Influence = {
 export const INFLUENCES: Influence[] = [
   {
     name: "Linear",
-    description: "プロダクト全体に貫かれた抑制 — 派手にせず、機能で語る姿勢",
+    description: "派手にせず機能で語る UI 設計。自分の UI 判断の基準になっています。",
   },
   {
     name: "Vercel / Next.js",
-    description: "DX とパフォーマンスを両立させる思想。Edge と RSC は試し続けている",
+    description: "DX とパフォーマンスのバランスの取り方。RSC は実プロダクトで試しています。",
   },
   {
     name: "Anthropic (Claude)",
-    description: "AI を「相棒」として扱う製品設計。MCP の設計思想に影響を受けた",
+    description: "MCP の RPC スキーマがそのまま型になる設計が好きです。自分のサーバーで参考にしました。",
   },
   {
     name: "rauchg / leerob",
-    description: "個人サイトとプロダクトの間にある「個」の表現の仕方",
+    description: "個人サイトを仕事の延長として書ける人たちです。",
   },
   {
     name: "kentcdodds",
-    description: "教育 × エンジニアリングの組み合わせ方。研修リーダー時の参考に",
+    description: "教える側と書く側を行き来する人。研修リーダーをやるときに参考にしました。",
   },
 ];

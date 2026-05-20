@@ -8,7 +8,7 @@ interface PageHeaderProps {
 
 export function PageHeader({ pageTitle, backLink }: PageHeaderProps) {
   return (
-    <header className="flex items-center justify-between border-b border-border py-3">
+    <header className="flex items-start justify-between pt-12 pb-6">
       <span className="flex items-center gap-2 font-mono text-xs text-muted tracking-[0.24px]">
         {backLink && (
           <Link href={backLink} className="hover:text-text transition-colors">

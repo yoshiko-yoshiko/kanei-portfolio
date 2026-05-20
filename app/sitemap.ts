@@ -5,7 +5,6 @@ import { PROJECTS } from './(pages)/projects/projects-data';
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_CONFIG.url;
 
-  // Static pages
   const staticPages = [
     {
       url: baseUrl,
@@ -14,33 +13,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/projects`,
+      url: `${baseUrl}/works`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/skills`,
+      url: `${baseUrl}/profile`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly' as const,
-      priority: 0.5,
+      priority: 0.8,
     },
   ];
 
-  // Dynamic project pages (if individual pages exist)
-  const projectPages = PROJECTS.map((project) => ({
+  const projectPages = PROJECTS.filter((p) => p.featured).map((project) => ({
     url: `${baseUrl}/projects/${project.id}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,

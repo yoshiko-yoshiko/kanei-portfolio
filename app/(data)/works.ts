@@ -34,7 +34,7 @@ export const WORKS: WorkEntry[] = [
     id: "medical-app",
     year: "2025",
     sortYear: 2025,
-    title: "MedGuide / 医療系オンラインアプリ",
+    title: "医療系オンラインアプリ",
     description:
       "オンライン服薬指導プラットフォーム — 予約型 + リアルタイム型を1プロダクトに同居。",
     category: "case-study",

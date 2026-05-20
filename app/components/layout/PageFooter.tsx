@@ -4,7 +4,7 @@ interface PageFooterProps {
 
 export function PageFooter({ rightText }: PageFooterProps) {
   return (
-    <footer className="flex items-center justify-between border-t border-border mt-8 py-4">
+    <footer className="flex items-center justify-between pt-6 pb-12">
       <span className="text-xs text-muted font-mono tracking-[0.24px]">
         © 2026 — Kanei Nakashima
       </span>
