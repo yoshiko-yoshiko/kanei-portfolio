@@ -1,14 +1,10 @@
 import Link from 'next/link';
-import { MedGuideHero } from '@/app/(pages)/projects/[slug]/_components/MedGuideHero';
-import { PortfolioHero } from '@/app/(pages)/projects/[slug]/_components/PortfolioHero';
-import { DesignSystemHero } from '@/app/(pages)/projects/[slug]/_components/DesignSystemHero';
-import { ReviewLensHero } from '@/app/(pages)/projects/[slug]/_components/ReviewLensHero';
 
 const FEATURED_WORKS = [
-  { slug: 'medical-app', name: 'MedGuide', Hero: MedGuideHero },
-  { slug: 'my-portfolio', name: 'Portfolio', Hero: PortfolioHero },
-  { slug: 'design-system', name: 'Design System', Hero: DesignSystemHero },
-  { slug: 'reviewlens', name: 'ReviewLens', Hero: ReviewLensHero },
+  { slug: 'medical-app', name: 'MedGuide', letter: 'M', caseNo: '01' },
+  { slug: 'my-portfolio', name: 'Portfolio', letter: 'P', caseNo: '02' },
+  { slug: 'design-system', name: 'Design System', letter: 'D', caseNo: '03' },
+  { slug: 'reviewlens', name: 'ReviewLens', letter: 'R', caseNo: '04' },
 ];
 
 export function WorksSection() {
@@ -25,15 +21,32 @@ export function WorksSection() {
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-        {FEATURED_WORKS.map(({ slug, name, Hero }) => (
+        {FEATURED_WORKS.map(({ slug, name, letter, caseNo }) => (
           <Link
             key={slug}
             href={`/projects/${slug}`}
             aria-label={name}
             className="block group"
           >
-            <div className="overflow-hidden transition-opacity group-hover:opacity-80">
-              <Hero />
+            <div className="relative aspect-square bg-[#EFEBE3] overflow-hidden rounded-sm">
+              {/* Top-left case label */}
+              <div className="absolute top-3 left-3 text-[10px] text-muted font-mono tracking-[0.24px] leading-tight z-10">
+                <div>case / {caseNo}</div>
+                <div className="mt-0.5">{name}</div>
+              </div>
+
+              {/* Big Letter — bleeds outside card */}
+              <span
+                aria-hidden
+                className="absolute inset-0 flex items-center justify-center text-text font-bold leading-none select-none transition-opacity group-hover:opacity-80"
+                style={{
+                  fontSize: 'clamp(120px, 28vw, 240px)',
+                  letterSpacing: '-0.05em',
+                  transform: 'translateY(8%)',
+                }}
+              >
+                {letter}
+              </span>
             </div>
           </Link>
         ))}
