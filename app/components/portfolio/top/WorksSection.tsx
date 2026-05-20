@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { ExploreLink } from '@/app/components/ui/ExploreLink';
 import medicalAppImg from '@/app/_assets/images/projects/medical-app-1.jpg';
 import portfolioImg from '@/app/_assets/images/projects/my-portfolio-1.jpg';
 import designSystemImg from '@/app/_assets/images/projects/design-system-1.jpg';
@@ -66,14 +66,7 @@ export function WorksSection() {
         ))}
       </div>
       <div className="mt-4">
-        <Link
-          href="/works"
-          className="inline-flex items-center gap-1 text-sm text-text hover:opacity-70 transition-opacity"
-        >
-          もっと見たい
-          <span className="text-muted italic"> / See more</span>
-          <span className="ml-0.5">→</span>
-        </Link>
+        <ExploreLink href="/works" jp="もっと見たい" en="See more" />
       </div>
     </section>
   );
