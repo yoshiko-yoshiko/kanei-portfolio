@@ -10,6 +10,7 @@ import { MedGuideHero } from './_components/MedGuideHero';
 import { DesignSystemHero } from './_components/DesignSystemHero';
 import { ReviewLensHero } from './_components/ReviewLensHero';
 import { PortfolioHero } from './_components/PortfolioHero';
+import { AiconHero } from './_components/AiconHero';
 
 function getHero(slug: string) {
   switch (slug) {
@@ -21,6 +22,8 @@ function getHero(slug: string) {
       return <ReviewLensHero />;
     case 'my-portfolio':
       return <PortfolioHero />;
+    case 'aicon':
+      return <AiconHero />;
     default:
       return null;
   }
