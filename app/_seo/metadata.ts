@@ -4,11 +4,17 @@ import { SITE_CONFIG } from "../lib/constants";
 export const siteMetadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: `${SITE_CONFIG.author} | ${SITE_CONFIG.title}`,
-    template: `%s | ${SITE_CONFIG.author}`,
+    default: `${SITE_CONFIG.author} (${SITE_CONFIG.authorJa}) | ${SITE_CONFIG.title}`,
+    template: `%s | ${SITE_CONFIG.author} (${SITE_CONFIG.authorJa})`,
   },
   description: SITE_CONFIG.description,
   keywords: [
+    "中島寛瑛",
+    "Kanei Nakashima",
+    "中島寛瑛 エンジニア",
+    "Kanei Nakashima Engineer",
+    "中島寛瑛 ポートフォリオ",
+    "なかしま かんえい",
     "Engineer",
     "フルスタックエンジニア",
     "React",
