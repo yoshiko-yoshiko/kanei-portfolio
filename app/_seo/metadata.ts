@@ -29,7 +29,6 @@ export const siteMetadata: Metadata = {
     "ポートフォリオサイト",
     "Webアプリ開発",
     "医療系アプリ",
-    SITE_CONFIG.author,
   ],
   authors: [{ name: SITE_CONFIG.author, url: SITE_CONFIG.url }],
   creator: SITE_CONFIG.author,
