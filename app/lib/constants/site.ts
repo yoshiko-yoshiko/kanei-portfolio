@@ -10,8 +10,9 @@ export const SOCIAL_LINKS: SocialLink[] = [
 export const SITE_CONFIG = {
   name: 'Portfolio',
   title: 'Engineer',
-  description: 'Kanei Nakashima | React/Next.js/TypeScriptを中心としたフルスタックエンジニアのポートフォリオ。医療系Webアプリ開発、MCPサーバー構築、AIエージェント開発の実績。',
+  description: '中島寛瑛（Kanei Nakashima） | React/Next.js/TypeScriptを中心としたフルスタックエンジニアのポートフォリオ。医療系Webアプリ開発、MCPサーバー構築、AIエージェント開発の実績。',
   author: 'Kanei Nakashima',
+  authorJa: '中島寛瑛',
   email: 'iamkaneisanda@gmail.com',
   url: 'https://kanei-portfolio.vercel.app',
 };
